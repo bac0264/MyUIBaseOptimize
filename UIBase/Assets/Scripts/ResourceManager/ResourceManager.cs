@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 
-public class ResourceManager : MonoBehaviour
+public class ResourceManager : IResource
 {
     public static ResourceManager instance;
     public Dictionary<string, ResourceStat> resourceList;
-    private void Awake()
+    public ResourceManager()
     {
-        if (instance == null) instance = this;
+        Debug.Log("run");
         if (!PlayerPrefs.HasKey("IsTheFirst"))
         {
             PlayerPrefs.SetInt("IsTheFirst", 0);
@@ -20,13 +20,26 @@ public class ResourceManager : MonoBehaviour
         {
             LoadAllResource();
         }
-        DebugResource();
     }
+    //private void Awake()
+    //{
+    //    if (instance == null) instance = this;
+    //    if (!PlayerPrefs.HasKey("IsTheFirst"))
+    //    {
+    //        PlayerPrefs.SetInt("IsTheFirst", 0);
+    //        SetupResourceForTheFirst();
+    //    }
+    //    else
+    //    {
+    //        LoadAllResource();
+    //    }
+    //    DebugResource();
+    //}
     // Save Load
-    private void OnDisable()
-    {
-        SaveAllResource();
-    }
+    //private void OnDisable()
+    //{
+    //    SaveAllResource();
+    //}
     public void SetupResourceForTheFirst()
     {
         resourceList = new Dictionary<string, ResourceStat>();
@@ -37,6 +50,7 @@ public class ResourceManager : MonoBehaviour
                 type = TypeOfResource.ConvertStringToEnum(str)
             };
             ResourceStat resource = new ResourceStat(PlayerPrefs.GetFloat(str, 0), type);
+            Debug.Log(type);
             resourceList.Add(str, resource);
         }
     }
@@ -72,6 +86,7 @@ public class ResourceManager : MonoBehaviour
             {
                 type = TypeOfResource.ConvertStringToEnum(str)
             };
+            Debug.Log(type);
             ResourceStat resource = new ResourceStat(PlayerPrefs.GetFloat(str, 0), type);
             resourceList.Add(str, resource);
         }

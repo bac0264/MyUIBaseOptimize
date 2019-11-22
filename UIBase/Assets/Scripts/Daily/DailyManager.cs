@@ -27,17 +27,17 @@ public class DailyManager : MonoBehaviour
         if (dailyPanel == null) dailyPanel = GetComponentInChildren<DailyPanel>();
         if (dailyReward == null) dailyReward = GetComponentInChildren<DailyReward>();
     }
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-        dailyPanel.OnRightClickEvent += RecieveReward;
-    }
-    private void Start()
-    {
-        dailyPanel.LoadData();
-        Setup();
-        gameObject.SetActive(false);
-    }
+    //private void Awake()
+    //{
+    //    if (instance == null) instance = this;
+    //    dailyPanel.OnRightClickEvent += RecieveReward;
+    //}
+    //private void Start()
+    //{
+    //    dailyPanel.LoadData();
+    //    Setup();
+    //    gameObject.SetActive(false);
+    //}
     public void Setup()
     {
         IndexReward = PlayerPrefs.GetInt(KeySave.INDEX_FREE_REWARD, 0);
