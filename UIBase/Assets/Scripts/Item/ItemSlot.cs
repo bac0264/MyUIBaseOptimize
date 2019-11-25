@@ -11,6 +11,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Image icon;
     public Image backGround;
     public Image isEquip;
+    public Image type;
     public Text level;
     public Action<Item> OnRightClickEvent;
 
@@ -49,6 +50,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                         if (_item.isEquip) isEquip.gameObject.SetActive(true);
                         else isEquip.gameObject.SetActive(false);
                     }
+                    if (type != null) type.sprite = itemDB.GetItemType(ITEM.type.ToString());
                 }
             }
         }

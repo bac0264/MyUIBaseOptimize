@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemActionManager : MonoBehaviour
+public class CharacterAction : MonoBehaviour
 {
     public ItemSlotList itemSlotList;
     public EquipmentSlotList equipSlotList;
@@ -32,4 +32,10 @@ public class ItemActionManager : MonoBehaviour
         }
     }
 
+}
+public class CharacterStat
+{
+    public BaseStat ATK;
+    public BaseStat HP;
+    public BaseStat POWER;
 }

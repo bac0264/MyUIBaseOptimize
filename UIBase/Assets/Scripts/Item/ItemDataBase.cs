@@ -6,13 +6,14 @@ public class ItemDataBase : MonoBehaviour
 {
     public static ItemDataBase instance;
     public Dictionary<string, Sprite> itemIconList;
-    public Sprite[] itemColorList;
+    public Dictionary<string, Sprite> itemType;
     public Sprite spriteDefault;
     private void Awake()
     {
         if (instance == null) instance = this;
         Sprite[] _itemIconList = Resources.LoadAll<Sprite>("SpriteItem");
         itemIconList = new Dictionary<string, Sprite>();
+        itemType = new Dictionary<string, Sprite>();
         for (int i = 0; i < _itemIconList.Length; i++)
         {
             itemIconList.Add(_itemIconList[i].name, _itemIconList[i]);
@@ -30,5 +31,11 @@ public class ItemDataBase : MonoBehaviour
         else if (levelUpgrade == 1) return Color.green;
         else if (levelUpgrade == 2) return Color.blue;
         else return Color.magenta;
+    }
+    public Sprite GetItemType(string type)
+    {
+        string x = "_" + type + "_";
+        if (itemIconList.ContainsKey(x)) return itemIconList[x];
+        return null;
     }
 }
