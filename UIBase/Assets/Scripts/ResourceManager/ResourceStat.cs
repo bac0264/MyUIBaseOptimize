@@ -2,28 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class ResourceStat
+public class ResourceStat : BaseStat
 {
-    public float value;
     public TypeOfResource Type;
 
     public ResourceStat(float value, TypeOfResource Type)
     {
         this.value = value;
         this.Type = Type;
-    }
-
-    public void AddValue(float value)
-    {
-        if (value > 0)
-            this.value += value;
-    }
-    public void ReduceValue(float value)
-    {
-        if (value > 0)
-        {
-            this.value -= value;
-            if (this.value < 0) this.value = 0;
-        }
     }
 }

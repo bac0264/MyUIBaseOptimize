@@ -8,7 +8,8 @@ public class ResourceText : MonoBehaviour
     private Text text;
     public void UpdateText()
     {
-        ResourceStat resource = ResourceManager.instance.getResourceNeed(name);
+        IResourceManager itemManager = DIContainer.GetModule<IResourceManager>();
+        ResourceStat resource = itemManager.getResourceNeed(name);
         if (resource != null)
             text.text = resource.value.ToString();
     }

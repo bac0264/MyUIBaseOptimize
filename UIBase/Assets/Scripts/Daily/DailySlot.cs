@@ -74,10 +74,8 @@ public class DailySlot : MonoBehaviour, IPointerClickHandler
 
     public void RecieveReward()
     {
-        if(ResourceManager.instance != null)
-        {
-            ResourceManager.instance.AddResourceNeed(TypeOfResource.Type.Gold.ToString(), price.Gold);
-        }
+        IResourceManager irsm = DIContainer.GetModule<IResourceManager>();
+        irsm.AddResourceNeed(TypeOfResource.Type.GOLD.ToString(), price.Gold);
     }
     public void DailyDisplay(int index)
     {

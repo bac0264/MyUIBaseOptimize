@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 
-public class ResourceManager : IResource
+public class ResourceManager : IResourceManager
 {
-    public static ResourceManager instance;
     public Dictionary<string, ResourceStat> resourceList;
     public ResourceManager()
     {
-        Debug.Log("run");
         if (!PlayerPrefs.HasKey("IsTheFirst"))
         {
             PlayerPrefs.SetInt("IsTheFirst", 0);
@@ -21,26 +19,11 @@ public class ResourceManager : IResource
             LoadAllResource();
         }
     }
-    //private void Awake()
-    //{
-    //    if (instance == null) instance = this;
-    //    if (!PlayerPrefs.HasKey("IsTheFirst"))
-    //    {
-    //        PlayerPrefs.SetInt("IsTheFirst", 0);
-    //        SetupResourceForTheFirst();
-    //    }
-    //    else
-    //    {
-    //        LoadAllResource();
-    //    }
-    //    DebugResource();
-    //}
-    // Save Load
-    //private void OnDisable()
-    //{
-    //    SaveAllResource();
-    //}
-    public void SetupResourceForTheFirst()
+    /// <summary>
+    /// Setup for the first time login game.
+    /// Thiet lap cho lan dau vao game
+    /// </summary>
+    private void SetupResourceForTheFirst()
     {
         resourceList = new Dictionary<string, ResourceStat>();
         foreach (string str in Enum.GetNames(typeof(TypeOfResource.Type)))
@@ -50,11 +33,14 @@ public class ResourceManager : IResource
                 type = TypeOfResource.ConvertStringToEnum(str)
             };
             ResourceStat resource = new ResourceStat(PlayerPrefs.GetFloat(str, 0), type);
-            Debug.Log(type);
             resourceList.Add(str, resource);
         }
     }
-    public void SaveAllResource()
+    /// <summary>
+    /// This function save all Resource.
+    /// Chuc nang nay luu tat ca cac resource lai
+    /// </summary>
+    private void SaveAllResource()
     {
         foreach (string str in Enum.GetNames(typeof(TypeOfResource.Type)))
         {
@@ -67,7 +53,11 @@ public class ResourceManager : IResource
             }
         }
     }
-    public void SaveResource(string str)
+    /// <summary>
+    /// Save each element based on type of resource.
+    /// Luu moi phan tu dua vao loai tai nguyen 
+    /// </summary>
+    private void SaveResource(string str)
     {
         ResourceStat resource = getResourceNeed(str);
         if (resource != null)
@@ -77,7 +67,12 @@ public class ResourceManager : IResource
             PlayerPrefs.SetFloat(str, 0);
         }
     }
-    public void LoadAllResource()
+
+    /// <summary>
+    /// Load all resource to list dictionary.
+    /// Luu toan bo tai nguyen vao list dictionary
+    /// </summary>
+    private void LoadAllResource()
     {
         resourceList = new Dictionary<string, ResourceStat>();
         foreach (string str in Enum.GetNames(typeof(TypeOfResource.Type)))
@@ -86,7 +81,6 @@ public class ResourceManager : IResource
             {
                 type = TypeOfResource.ConvertStringToEnum(str)
             };
-            Debug.Log(type);
             ResourceStat resource = new ResourceStat(PlayerPrefs.GetFloat(str, 0), type);
             resourceList.Add(str, resource);
         }
@@ -95,9 +89,10 @@ public class ResourceManager : IResource
     {
         foreach (KeyValuePair<string, ResourceStat> ele1 in resourceList)
         {
-            Debug.Log("Key: "+ele1.Key+ " ,Resource:  "+ele1.Value.Type.type.ToString()+ " ,value: "+ele1.Value.value);
+            Debug.Log("Key: " + ele1.Key + " ,Resource:  " + ele1.Value.Type.type.ToString() + " ,value: " + ele1.Value.value);
         }
     }
+
     public bool ReduceResourceNeed(string type, float Value)
     {
         ResourceStat resourceNeed = getResourceNeed(type);
@@ -125,13 +120,8 @@ public class ResourceManager : IResource
     }
     public ResourceStat getResourceNeed(string type)
     {
-        try
-        {
+        if (resourceList.ContainsKey(type))
             return resourceList[type];
-        }
-        catch
-        {
-            return null;
-        }
+        return null;
     }
 }

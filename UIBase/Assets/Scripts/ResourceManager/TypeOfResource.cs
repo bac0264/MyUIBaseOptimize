@@ -7,22 +7,16 @@ public class TypeOfResource
 {
     public enum Type
     {
-        Gold,
-        Gem,
-        Exp,
-        Exception
+        GOLD,
+        GEM,
+        STAMINA,
+        EXP,
     }
     public Type type;
     public static Type ConvertStringToEnum(string str)
     {
-        try
-        {
-            Type _type = (Type)Enum.Parse(typeof(Type), str);
-            return _type;
-        }
-        catch {
-            return Type.Exception;
-        }
+        Type _type = (Type)Enum.Parse(typeof(Type), str);
+        return _type;
     }
 
 }

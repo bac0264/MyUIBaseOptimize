@@ -9,8 +9,6 @@ public class DIContainer
     public static readonly Dictionary<Type, object>
                ResgisteredModules = new Dictionary<Type, object>();
 
-    //Hai hàm cơ bản, ở đây mình chuyển <T> thành 
-    //dạng Type trong C# để dễ viết code
     public static void SetModule<TInterface, TModule>()
     {
         SetModule(typeof(TInterface), typeof(TModule));
@@ -37,7 +35,7 @@ public class DIContainer
         if (!firstConstructor.GetParameters().Any())
         {
             //Khởi tạo module
-            module = firstConstructor.Invoke(null); // new Database(), new Logger()
+            module = firstConstructor.Invoke(null); // nếu có constructor con khởi tạo dữ liệu bên trong firstCons
             Console.Write(module);
         }
         else

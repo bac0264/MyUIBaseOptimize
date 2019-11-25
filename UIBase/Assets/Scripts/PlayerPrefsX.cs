@@ -12,7 +12,7 @@ public class PlayerPrefsX
     static private int idx;
     static private byte[] byteBlock;
 
-    enum ArrayType {String }
+    enum ArrayType { String }
     private static void Initialize()
     {
         if (System.BitConverter.IsLittleEndian)
