@@ -4665,7 +4665,7 @@ GameObject:
   - component: {fileID: 616418349}
   - component: {fileID: 616418348}
   m_Layer: 5
-  m_Name: Inventory
+  m_Name: HeroRecruitingRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7577,7 +7577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000010683882, y: 0.00000484719}
+  m_AnchoredPosition: {x: 0.000010683882, y: 0.0000047686967}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1271376572
@@ -7847,7 +7847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08867941, y: 0.30556855}
   m_AnchorMax: {x: 0.37166032, y: 0.61256856}
-  m_AnchoredPosition: {x: -47.440002, y: 5.5999928}
+  m_AnchoredPosition: {x: -47.440018, y: 5.5999928}
   m_SizeDelta: {x: -0.7900009, y: 1.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1304232299

@@ -44,7 +44,8 @@ public class Item
         this.levelUpgrade = item.levelUpgrade;
         this.isEquip = item.isEquip;
     }
-    public Item(float value) {
+    public Item(float value)
+    {
         this.value = value;
     }
     public Item() { }
@@ -75,9 +76,9 @@ public class Item
     }
     public void Equip(CharacterAction c)
     {
-        StatModifier mod1 = new StatModifier(dame, StatModType.Flat);
-        StatModifier mod2 = new StatModifier(hp, StatModType.Flat);
-        StatModifier mod3 = new StatModifier(power, StatModType.Flat);
+        mod1 = new StatModifier(dame, StatModType.Flat);
+        mod2 = new StatModifier(hp, StatModType.Flat);
+        mod3 = new StatModifier(power, StatModType.Flat);
         c.Dame.AddModifier(mod1);
         c.HP.AddModifier(mod2);
         c.Power.AddModifier(mod3);
