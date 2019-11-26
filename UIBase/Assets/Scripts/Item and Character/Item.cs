@@ -2,14 +2,22 @@
 using System.Collections;
 
 [System.Serializable]
-public class Item : BaseStat
+public class Item
 {
+    public float value;
     public float itemIndex;
     public float id; // identify of item
     public float type; // type of item
     public float level; // level item
     public float levelUpgrade; // color
     public bool isEquip;
+
+    public readonly float dame = 10;
+    public readonly float power = 5;
+    public readonly float hp = 100;
+    private StatModifier mod1;
+    private StatModifier mod2;
+    private StatModifier mod3;
     public Item(float itemIndex, float id, float type, float value, float level, float levelUpgrade, bool isEquip)
     {
         this.itemIndex = itemIndex;
@@ -40,8 +48,19 @@ public class Item : BaseStat
         this.value = value;
     }
     public Item() { }
-
-
+    public void AddValue(float value)
+    {
+        if (value > 0)
+            this.value += value;
+    }
+    public void ReduceValue(float value)
+    {
+        if (value > 0)
+        {
+            this.value -= value;
+            if (this.value < 0) this.value = 0;
+        }
+    }
     public void AddLevel(float value)
     {
         if (value > 0)
@@ -53,5 +72,20 @@ public class Item : BaseStat
         {
             levelUpgrade += value;
         }
+    }
+    public void Equip(CharacterAction c)
+    {
+        StatModifier mod1 = new StatModifier(dame, StatModType.Flat);
+        StatModifier mod2 = new StatModifier(hp, StatModType.Flat);
+        StatModifier mod3 = new StatModifier(power, StatModType.Flat);
+        c.Dame.AddModifier(mod1);
+        c.HP.AddModifier(mod2);
+        c.Power.AddModifier(mod3);
+    }
+    public void Unequip(CharacterAction c)
+    {
+        c.Dame.RemoveModifier(mod1);
+        c.HP.RemoveModifier(mod2);
+        c.Power.RemoveModifier(mod3);
     }
 }

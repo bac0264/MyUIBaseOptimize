@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  FireRate: {fileID: 8591610496316554163}
+  HP: {fileID: 8591610496316554163}
   Dame: {fileID: 8275925790708153051}
-  SpeedATK: {fileID: 4282351860878487827}
+  Power: {fileID: 4282351860878487827}
   OtherText: {fileID: 3218525428416528773}
   Background: {fileID: 4187795404379746619}
   Icon: {fileID: 8840419499402896407}
@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 875136368442443719}
   - component: {fileID: 9066021267027319339}
   m_Layer: 5
-  m_Name: FireRate
+  m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 5286096113337493764}
   - component: {fileID: 8591610496316554163}
   m_Layer: 5
-  m_Name: FireRateValue
+  m_Name: HpValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

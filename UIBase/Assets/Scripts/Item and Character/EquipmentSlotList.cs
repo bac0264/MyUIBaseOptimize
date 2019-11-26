@@ -58,6 +58,7 @@ public class EquipmentSlotList : MonoBehaviour
                 if (CharacterAction.instance.itemSlotList.AddToUnequip(_itemSlot.ITEM))
                 {
                     _itemSlot.ITEM = item;
+
                     return true;
                 }
 

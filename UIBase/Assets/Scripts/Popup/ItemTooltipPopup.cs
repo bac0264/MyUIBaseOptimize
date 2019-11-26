@@ -6,9 +6,9 @@ public class ItemTooltipPopup : BasePopup
 {
     public static ItemTooltipPopup instance;
     private Item item;
-    public Text FireRate;
+    public Text HP;
     public Text Dame;
-    public Text SpeedATK;
+    public Text Power;
     public Text OtherText;
     public Image Background;
     public Image Icon;
@@ -31,9 +31,9 @@ public class ItemTooltipPopup : BasePopup
         {
             if (!item.type.ToString().Equals(((float)TypeOfItem.Type.Other).ToString()))
             {
-                FireRate.text = ": coming soon ";
-                Dame.text = ": coming soon ";
-                SpeedATK.text = ": coming soon ";
+                HP.text = ": "+item.hp;
+                Dame.text = ": "+item.dame;
+                Power.text = ": "+item.power;
                 if (db != null)
                 {
                     Background.color = db.GetBackground(item.levelUpgrade);
@@ -77,7 +77,10 @@ public class ItemTooltipPopup : BasePopup
     public void Equip()
     {
         CharacterAction character = CharacterAction.instance;
-        if (character != null && item != null && item.value > 0) character.Equip(item);
+        if (character != null && item != null && item.value > 0)
+        {
+            character.Equip(item);
+        }
         HideItemTooltip();
     }
     public void Unequip()

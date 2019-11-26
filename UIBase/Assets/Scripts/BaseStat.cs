@@ -4,6 +4,14 @@ using System.Collections;
 public class BaseStat
 {
     public float value;
+    public BaseStat()
+    {
+
+    }
+    public BaseStat(float value)
+    {
+        this.value = value;
+    }
     public virtual void AddValue(float value)
     {
         if (value > 0)

@@ -4,6 +4,11 @@ using System.Collections;
 public class CharacterAction : MonoBehaviour
 {
     public static CharacterAction instance;
+
+    public CharacterStat Dame;
+    public CharacterStat Power;
+    public CharacterStat HP;
+
     public ItemSlotList itemSlotList;
     public EquipmentSlotList equipSlotList;
     // Use this for initialization
@@ -35,6 +40,8 @@ public class CharacterAction : MonoBehaviour
             if (equipSlotList.AddToEquip(item))
             {
                 itemSlotList.RemoveToEquip(item);
+                item.Equip(this);
+                if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(this);
             }
         }
 
@@ -46,6 +53,8 @@ public class CharacterAction : MonoBehaviour
             if (itemSlotList.AddToUnequip(item))
             {
                 equipSlotList.RemoveToUnequip(item);
+                item.Unequip(this);
+                if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(this);
             }
         }
     }
