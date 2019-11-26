@@ -38,7 +38,7 @@ public class DIContainer
             module = firstConstructor.Invoke(null); // nếu có constructor con khởi tạo dữ liệu bên trong firstCons
             Console.Write(module);
         }
-        else
+        else 
         {
             //Lấy các tham số của constructor
             var constructorParameters = firstConstructor.GetParameters(); //IDatebase, ILogger

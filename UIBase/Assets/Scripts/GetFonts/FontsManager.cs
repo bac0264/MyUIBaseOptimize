@@ -37,7 +37,7 @@ public class FontsManager : MonoBehaviour
             else if (type.Equals("Setting")) return Ro_fontForSetting;
             else return Ro_fontForLose;
         }
-        else
+        else 
         {
             if (type.Equals("Btn")) return Go_fontForBtn;
             else if (type.Equals("Setting")) return Go_fontForSetting;

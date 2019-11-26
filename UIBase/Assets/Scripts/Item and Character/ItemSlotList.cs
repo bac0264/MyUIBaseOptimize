@@ -30,12 +30,12 @@ public class ItemSlotList : MonoBehaviour
             if (i < itemSlots.Length && ele1.Value.value > 0)
             {
                 itemSlots[i].ITEM = ele1.Value;
-                Debug.Log("type: "+ele1.Value.type+ ", id: "+ele1.Value.id+" ,value: "+ele1.Value.value 
-                    + ", IndexItem: "+ele1.Value.itemIndex +", isEquip: " +ele1.Value.isEquip
-                    + ", levelUpgrade: "+ele1.Value.levelUpgrade);
+                Debug.Log("type: " + ele1.Value.type + ", id: " + ele1.Value.id + " ,value: " + ele1.Value.value
+                    + ", IndexItem: " + ele1.Value.itemIndex + ", isEquip: " + ele1.Value.isEquip
+                    + ", levelUpgrade: " + ele1.Value.levelUpgrade);
                 i++;
             }
-            else if(i >= itemSlots.Length)
+            else if (i >= itemSlots.Length)
             {
                 break;
             }
@@ -59,14 +59,14 @@ public class ItemSlotList : MonoBehaviour
                 _itemSlot = GetFirstNullItemSlot();
                 if (_itemSlot != null)
                 {
-                   // itemManager.AddItemValue(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString(), item.value);
+                    // itemManager.AddItemValue(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString(), item.value);
                     Item _item = itemManager.GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
                     _itemSlot.ITEM = _item;
                 }
             }
             else
             {
-               // itemManager.AddItemValue(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString(), item.value);
+                // itemManager.AddItemValue(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString(), item.value);
                 Item _item = itemManager.GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
                 _itemSlot.ITEM = _item;
             }
@@ -82,7 +82,7 @@ public class ItemSlotList : MonoBehaviour
                 ItemSlot itemSlot = GetFirstNullItemSlot();
                 if (itemSlot != null)
                 {
-                  //  itemManager.AddItemValue(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString(), 1);
+                    //  itemManager.AddItemValue(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString(), 1);
                     Item _item = itemManager.GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
                     itemSlot.ITEM = _item;
                 }
@@ -93,7 +93,7 @@ public class ItemSlotList : MonoBehaviour
     {
 
         ItemSlot _itemSlot = GetItemSlot(item);
-       // itemManager.ReduceItemValue(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString(), item.value);
+        // itemManager.ReduceItemValue(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString(), item.value);
         Item _item = itemManager.GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
         _itemSlot.ITEM = _item;
     }
@@ -146,4 +146,33 @@ public class ItemSlotList : MonoBehaviour
     }
 
     #endregion
+
+    public void Filter(string type)
+    {
+        if (TypeOfItem.IsTypeOfItem(type))
+        {
+            foreach (ItemSlot itemSlot in itemSlots)
+            {
+                if (itemSlot.ITEM != null)
+                {
+                    if (itemSlot.ITEM.type.ToString().Equals(type))
+                    {
+                        itemSlot.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        itemSlot.gameObject.SetActive(false);
+                    }
+                }
+                else itemSlot.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            foreach (ItemSlot itemSlot in itemSlots)
+            {
+                itemSlot.gameObject.SetActive(true);
+            }
+        }
+    }
 }

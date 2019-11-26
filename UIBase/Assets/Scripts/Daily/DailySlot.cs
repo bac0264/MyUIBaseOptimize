@@ -61,7 +61,7 @@ public class DailySlot : MonoBehaviour, IPointerClickHandler
             {
                 DailyDisplay(Next);
             }
-            else
+            else 
             {
                 DailyDisplay(Default);
             }
@@ -82,7 +82,7 @@ public class DailySlot : MonoBehaviour, IPointerClickHandler
         for(int i = 0; i < DailyDisplays.Count; i++)
         {
             if (i == index) DailyDisplays[i].SetActive(true);
-            else
+            else 
             {
                 DailyDisplays[i].SetActive(false);
             }

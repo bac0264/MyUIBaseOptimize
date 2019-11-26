@@ -20,7 +20,7 @@ public class PlayerPrefsX
             endianDiff1 = 0;
             endianDiff2 = 0;
         }
-        else
+        else 
         {
             endianDiff1 = 3;
             endianDiff2 = 1;

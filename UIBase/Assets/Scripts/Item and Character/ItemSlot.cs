@@ -11,8 +11,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Image icon;
     public Image backGround;
     public Image isEquip;
-    public Image type;
+    public Image typeIcon;
     public Text level;
+    public Text amount;
     public Action<Item> OnRightClickEvent;
 
     public virtual Item ITEM
@@ -25,32 +26,66 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                 backGround.gameObject.SetActive(false);
                 _item = null;
             }
-            else
+            else 
             {
-                backGround.gameObject.SetActive(true);
                 ItemDataBase itemDB = ItemDataBase.instance;
                 if (itemDB != null)
                 {
+                    // Set up Icon
                     if (icon != null)
                     {
                         icon.sprite = itemDB.GetItemSprite(ITEM.type.ToString(),
                             ITEM.id.ToString(), ITEM.levelUpgrade.ToString());
                         if (icon.sprite == null)
                         {
+                            icon.gameObject.SetActive(false);
                             backGround.gameObject.SetActive(false);
                             _item = null;
                             return;
                         }
+                        icon.gameObject.SetActive(true);
                     }
+                    //elseicon.gameObject.SetActive(false);
+
+                    // Set up Background
                     if (backGround != null)
-                        backGround.color = itemDB.GetColor(ITEM.levelUpgrade);
-                    if (level != null) level.text = ITEM.level.ToString();
+                    {
+                        backGround.color = itemDB.GetBackground(ITEM.levelUpgrade);
+                        backGround.gameObject.SetActive(true);
+                    }
+                    //elsebackGround.gameObject.SetActive(false);
+
+                    // Set up level text
+                    if (level != null && ITEM.type != (float)TypeOfItem.Type.Other)
+                    {
+                        level.text = ITEM.level.ToString();
+                        level.gameObject.SetActive(true);
+                    }
+                    //elselevel.gameObject.SetActive(false);
+
+                    // Set up equipIcon
                     if (isEquip != null)
                     {
                         if (_item.isEquip) isEquip.gameObject.SetActive(true);
                         else isEquip.gameObject.SetActive(false);
                     }
-                    if (type != null) type.sprite = itemDB.GetItemType(ITEM.type.ToString());
+                    //elseisEquip.gameObject.SetActive(false);
+
+                    // Set up type of Item
+                    if (typeIcon != null && ITEM.type != (float)TypeOfItem.Type.Other)
+                    {
+                        typeIcon.color = itemDB.GetItemType(ITEM.type.ToString());
+                        typeIcon.gameObject.SetActive(true);
+                    }
+                    //elsetypeIcon.gameObject.SetActive(false);
+
+                    // Set up amount of Item
+                    if (amount != null)
+                    {
+                        amount.text = ITEM.value.ToString();
+                        amount.gameObject.SetActive(true);
+                    }
+                    //elseamount.gameObject.SetActive(false);
                 }
             }
         }

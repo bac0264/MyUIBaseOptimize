@@ -55,7 +55,7 @@ public class DailyReward : MonoBehaviour
                 _configTimerSettings();
                 return;
             }
-            else
+            else 
             {
 
                 return;
@@ -84,7 +84,7 @@ public class DailyReward : MonoBehaviour
                 DailyManager.instance.dailyPanel.SaveData();
             }
         }
-        else
+        else 
         {
             _timerComplete = false;
             _timerIsReady = true;

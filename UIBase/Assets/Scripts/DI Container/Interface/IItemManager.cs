@@ -68,4 +68,5 @@ public interface IItemManager
     Dictionary<string, Item> GetItemDictionary();
     void SaveItemIntoPlayerPrefX();
     void AddItem(Item item);
+    List<Item> EquipmentItemList();
 }

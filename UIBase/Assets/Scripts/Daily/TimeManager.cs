@@ -57,7 +57,7 @@ public class TimeManager : MonoBehaviour
         {
             Debug.Log(www.error);
         }
-        else
+        else 
         {
             if (www.isHttpError)
             {
@@ -67,7 +67,7 @@ public class TimeManager : MonoBehaviour
                 {
                     Debug.Log(www.error);
                 }
-                else
+                else 
                 {
                     string date = www.GetResponseHeader("date");
                     yield return new WaitForSecondsRealtime(0.1f);
@@ -85,7 +85,7 @@ public class TimeManager : MonoBehaviour
                     _currentTime = words_[1];
                 }
             }
-            else
+            else 
             {
                 string date = www.GetResponseHeader("date");
                 yield return new WaitForSecondsRealtime(0.1f);

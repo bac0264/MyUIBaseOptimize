@@ -25,17 +25,22 @@ public class ItemDataBase : MonoBehaviour
         if (itemIconList.ContainsKey(x)) return itemIconList[x];
         return null;
     }
-    public Color GetColor(float levelUpgrade)
+    public Color GetBackground(float levelUpgrade)
     {
         if (levelUpgrade == 0) return Color.white;
         else if (levelUpgrade == 1) return Color.green;
         else if (levelUpgrade == 2) return Color.blue;
         else return Color.magenta;
     }
-    public Sprite GetItemType(string type)
+    public Color GetItemType(string type)
     {
-        string x = "_" + type + "_";
-        if (itemIconList.ContainsKey(x)) return itemIconList[x];
-        return null;
+        //string x = "_" + type + "_";
+        //if (itemIconList.ContainsKey(x)) return itemIconList[x];
+        //return null;
+        if (type.Equals("0")) return Color.red;
+        else if (type.Equals("1")) return Color.black;
+        else if (type.Equals("2")) return Color.cyan;
+        else if (type.Equals("3")) return Color.gray;
+        else return Color.yellow;
     }
 }

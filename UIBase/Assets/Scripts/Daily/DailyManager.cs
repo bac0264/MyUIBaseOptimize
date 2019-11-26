@@ -60,7 +60,7 @@ public class DailyManager : MonoBehaviour
             }
             dailyPanel.SaveData();
         }
-        else
+        else 
         {
 
         }
@@ -81,7 +81,7 @@ public class DailyManager : MonoBehaviour
             }
             return false;
         }
-        else
+        else 
         {
             DailySlot next = dailyPanel.getSlot(IndexReward);
             if (next != null)
@@ -102,7 +102,7 @@ public class DailyManager : MonoBehaviour
         {
             dailyPanel.getSlot(indexReward).IsOpen = false;
         }
-        else
+        else 
         {
 
         }
@@ -119,7 +119,7 @@ public class DailyManager : MonoBehaviour
                 NextReward();
                 dailyReward.rewardClicked();
             }
-            else
+            else 
             {
                 dailyReward._checktime();
                 //SetpositionProgress();

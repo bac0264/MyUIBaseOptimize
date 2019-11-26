@@ -39,6 +39,9 @@ public class Item : BaseStat
     public Item(float value) {
         this.value = value;
     }
+    public Item() { }
+
+
     public void AddLevel(float value)
     {
         if (value > 0)

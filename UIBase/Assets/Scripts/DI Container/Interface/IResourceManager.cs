@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public interface IResourceManager
 {
@@ -26,5 +27,4 @@ public interface IResourceManager
     /// <param name="type"> loai cua tai nguyen </param>
     /// <returns></returns>
     ResourceStat getResourceNeed(string type);
-
 }

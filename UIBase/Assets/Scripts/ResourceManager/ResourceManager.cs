@@ -14,7 +14,7 @@ public class ResourceManager : IResourceManager
             PlayerPrefs.SetInt("IsTheFirst", 0);
             SetupResourceForTheFirst();
         }
-        else
+        else 
         {
             LoadAllResource();
         }
@@ -47,7 +47,7 @@ public class ResourceManager : IResourceManager
             ResourceStat resource = getResourceNeed(str);
             if (resource != null)
                 PlayerPrefs.SetFloat(str, getResourceNeed(str).value);
-            else
+            else 
             {
                 PlayerPrefs.SetFloat(str, 0);
             }
@@ -62,7 +62,7 @@ public class ResourceManager : IResourceManager
         ResourceStat resource = getResourceNeed(str);
         if (resource != null)
             PlayerPrefs.SetFloat(str, getResourceNeed(str).value);
-        else
+        else 
         {
             PlayerPrefs.SetFloat(str, 0);
         }

@@ -16,7 +16,7 @@ public class PopupFactory : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(instance);
         }
-        else
+        else 
         {
             Destroy(this);
         }
@@ -41,26 +41,12 @@ public class PopupFactory : MonoBehaviour
     {
         switch (type)
         {
-            case BasePopup.TypeOfPopup.PO_Question:
-
-                break;
-            case BasePopup.TypeOfPopup.PO_QuestionMode1:
-
-                break;
-            case BasePopup.TypeOfPopup.PO_Hint:
-                break;
-            case BasePopup.TypeOfPopup.PO_Lose:
-                break;
-            case BasePopup.TypeOfPopup.PO_Setting:
-
-                break;
-            case BasePopup.TypeOfPopup.PO_Win:
-
-                break;
-            case BasePopup.TypeOfPopup.PO_Correct:
-
-                break;
-            case BasePopup.TypeOfPopup.PO_Incorrect:
+            case BasePopup.TypeOfPopup.PO_ItemTooltip:
+                if (ItemTooltipPopup.instance != null)
+                {
+                    ItemTooltipPopup.instance.ShowPopup();
+                    return;
+                }
                 break;
         }
         InitPopup(type);
@@ -69,26 +55,7 @@ public class PopupFactory : MonoBehaviour
     {
         switch (type)
         {
-            case BasePopup.TypeOfPopup.PO_Question:
-                break;
-            case BasePopup.TypeOfPopup.PO_QuestionMode1:
-
-                break;
-            case BasePopup.TypeOfPopup.PO_Hint:
-                break;
-            case BasePopup.TypeOfPopup.PO_Lose:
-                break;
-            case BasePopup.TypeOfPopup.PO_Setting:
-
-                break;
-            case BasePopup.TypeOfPopup.PO_Win:
-
-                break;
-            case BasePopup.TypeOfPopup.PO_Correct:
- 
-                break;
-            case BasePopup.TypeOfPopup.PO_Incorrect:
-
+            case BasePopup.TypeOfPopup.PO_ItemTooltip:
                 break;
         }
         return null;

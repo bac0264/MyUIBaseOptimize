@@ -6,14 +6,7 @@ public class BasePopup : MonoBehaviour
 {
     public enum TypeOfPopup
     {
-        PO_Correct,
-        PO_Incorrect,
-        PO_Win,
-        PO_Lose,
-        PO_Question,
-        PO_Hint,
-        PO_QuestionMode1,
-        PO_Setting
+        PO_ItemTooltip
     }
     public TypeOfPopup type;
     public virtual void ShowPopup()
@@ -23,17 +16,5 @@ public class BasePopup : MonoBehaviour
     public virtual void HidePopup()
     {
         gameObject.SetActive(false);
-    }
-    public virtual void Next()
-    {
-        HidePopup();
-    }
-    public virtual void Try()
-    {
-        HidePopup();
-    }
-    public virtual void Home()
-    {
-        SceneManager.LoadScene("Menu");
     }
 }
