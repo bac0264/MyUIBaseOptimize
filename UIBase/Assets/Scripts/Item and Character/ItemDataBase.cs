@@ -7,7 +7,6 @@ public class ItemDataBase : MonoBehaviour
     public static ItemDataBase instance;
     public Dictionary<string, Sprite> itemIconList;
     public Dictionary<string, Sprite> itemType;
-    public Sprite spriteDefault;
     private void Awake()
     {
         if (instance == null) instance = this;

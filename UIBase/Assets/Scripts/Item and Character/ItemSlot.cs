@@ -58,7 +58,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                     // Set up level text
                     if (level != null && ITEM.type != (float)TypeOfItem.Type.Other)
                     {
-                        level.text = ITEM.level.ToString();
+                        level.text = (ITEM.level + 1).ToString();
                         level.gameObject.SetActive(true);
                     }
                     //elselevel.gameObject.SetActive(false);

@@ -27,4 +27,5 @@ public interface IResourceManager
     /// <param name="type"> loai cua tai nguyen </param>
     /// <returns></returns>
     ResourceStat getResourceNeed(string type);
+
 }

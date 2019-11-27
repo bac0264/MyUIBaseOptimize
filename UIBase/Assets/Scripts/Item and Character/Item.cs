@@ -10,7 +10,8 @@ public class Item
     public float type; // type of item
     public float level; // level item
     public float levelUpgrade; // color
-    public bool isEquip;
+    public bool isEquip; // duoc trang bi vao hero
+    public bool isUpgrade; // duoc chon vao upgradeSlot
 
     public readonly float dame = 10;
     public readonly float power = 5;
