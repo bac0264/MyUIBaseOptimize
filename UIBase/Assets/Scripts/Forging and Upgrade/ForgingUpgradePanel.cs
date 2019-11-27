@@ -5,6 +5,10 @@ public class ForgingUpgradePanel : MonoBehaviour
 {
     public ItemSlotList itemSlotList;
     public ForgingUgradeSlotList forgingUpgradeSlotList;
+    private void Awake()
+    {
+        forgingUpgradeSlotList.OnRightClickEvent += Unequip;
+    }
     private void OnValidate()
     {
         if (itemSlotList == null) itemSlotList = FindObjectOfType<ItemSlotList>();
@@ -14,13 +18,13 @@ public class ForgingUpgradePanel : MonoBehaviour
     {
         itemSlotList.OnRightClickEvent += Equip;
         itemSlotList.SetupEvent();
-       // equipSlotList.OnRightClickEvent += Unequip;
+        itemSlotList.DisplayFU();
     }
     private void OnDisable()
     {
         itemSlotList.RemoveEvent();
         itemSlotList.OnRightClickEvent -= Equip;
-        // equipSlotList.OnRightClickEvent -= Unequip;
+        itemSlotList.UnactiveMarked();
     }
     public void Equip(Item item)
     {

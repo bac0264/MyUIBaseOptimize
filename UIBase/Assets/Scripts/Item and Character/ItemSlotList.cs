@@ -55,6 +55,8 @@ public class ItemSlotList : MonoBehaviour
     {
         if (itemSlots.Length == 0) itemSlots = GetComponentsInChildren<ItemSlot>();
     }
+    // Forging Ugrade
+    #region
     public void AddItemAmount(Item item)
     {
         if (item.id == TypeOfItem.GetType(TypeOfItem.Type.Other))
@@ -103,7 +105,32 @@ public class ItemSlotList : MonoBehaviour
         Item _item = itemManager.GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
         _itemSlot.ITEM = _item;
     }
+    public bool RemoveToEquipForgingUpgrade(Item item)
+    {
+        ItemSlot _itemSlot = GetItemSlot(item);
+        if (item == null) return false;
+        item.isForgingUpgrade = true;
+        _itemSlot.ITEM = item;
+        return true;
+    }
+    public bool AddToUnequipForgingUpgrade(Item item)
+    {
+        if (item == null) return false;
+        else
+        {
+            ItemSlot _itemSlot = GetItemSlot(item);
+            if (_itemSlot == null) return false;
+            else
+            {
+                item.isForgingUpgrade = false;
+                _itemSlot.ITEM = item;
+                return true;
+            }
+        }
+    }
+    #endregion
     // Equipment
+    #region
     public bool RemoveToEquip(Item item)
     {
         ItemSlot _itemSlot = GetItemSlot(item);
@@ -129,28 +156,12 @@ public class ItemSlotList : MonoBehaviour
             }
         }
     }
-    // Forging Ugrade
-    public bool RemoveToEquipForgingUpgrade(Item item)
+    public void DisplayFU()
     {
-        ItemSlot _itemSlot = GetItemSlot(item);
-        if (item == null) return false;
-        item.isForgingUpgrade = true;
-        _itemSlot.ITEM = item;
-        return true;
-    }
-    public bool AddToUnequipForgingUpgrade(Item item)
-    {
-        if (item == null) return false;
-        else
+        for (int j = 0; j < itemSlots.Length; j++)
         {
-            ItemSlot _itemSlot = GetItemSlot(item);
-            if (_itemSlot == null) return false;
-            else
-            {
-                item.isForgingUpgrade = false;
-                _itemSlot.ITEM = item;
-                return true;
-            }
+            if (itemSlots[j].ITEM != null && itemSlots[j].ITEM.isForgingUpgrade)
+                itemSlots[j].isForgingAndUpgrade.gameObject.SetActive(true);
         }
     }
     // Get Item Slot
@@ -204,6 +215,23 @@ public class ItemSlotList : MonoBehaviour
             {
                 itemSlot.gameObject.SetActive(true);
             }
+        }
+    }
+    public void DisplayEquipment()
+    {
+        for (int j = 0; j < itemSlots.Length; j++)
+        {
+            if (itemSlots[j].ITEM != null && itemSlots[j].ITEM.isEquip)
+                itemSlots[j].isEquip.gameObject.SetActive(true);
+        }
+    }
+    #endregion
+    public void UnactiveMarked()
+    {
+        for (int j = 0; j < itemSlots.Length; j++)
+        {
+            itemSlots[j].isEquip.gameObject.SetActive(false);
+            itemSlots[j].isForgingAndUpgrade.gameObject.SetActive(false);
         }
     }
 }

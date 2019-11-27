@@ -19,11 +19,13 @@ public class EquipmentPanel : MonoBehaviour
     {
         itemSlotList.OnRightClickEvent += ShowTooltip;
         itemSlotList.SetupEvent();
+        itemSlotList.DisplayEquipment();
     }
     private void OnDisable()
     {
         itemSlotList.RemoveEvent();
         itemSlotList.OnRightClickEvent -= ShowTooltip;
+        itemSlotList.UnactiveMarked();
     }
     private void OnValidate()
     {

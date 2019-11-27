@@ -13,26 +13,6 @@ public class ForgingUgradeSlotList : MonoBehaviour
     {
         SetupEvent();
     }
-    private void OnEnable()
-    {
-        SetupData();
-    }
-    public void SetupData()
-    {
-        itemManager = DIContainer.GetModule<IItemManager>();
-        List<Item> item = itemManager.EquipmentItemList();
-        for (int i = 0; i < forgingUgradeSlots.Length; i++)
-        {
-            for (int j = 0; j < item.Count; j++)
-            {
-                if (forgingUgradeSlots[i].ITEM.isForgingUpgrade)
-                {
-                    forgingUgradeSlots[i].ITEM = item[j];
-                    break;
-                }
-            }
-        }
-    }
     public void SetupEvent()
     {
         foreach (ForgingUgradeSlot slot in forgingUgradeSlots)
@@ -46,7 +26,7 @@ public class ForgingUgradeSlotList : MonoBehaviour
     }
     public bool AddToEquip(Item item)
     {
-
+        if (item.isForgingUpgrade) return false;
         ForgingUgradeSlot _itemSlot = GetNullForgingUgradeSlot();
         if (_itemSlot == null) return false;
         _itemSlot.ITEM = item;
