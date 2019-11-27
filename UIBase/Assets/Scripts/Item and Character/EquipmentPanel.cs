@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterAction : MonoBehaviour
+public class EquipmentPanel : MonoBehaviour
 {
-    public static CharacterAction instance;
+    public static EquipmentPanel instance;
 
-    public CharacterStat Dame;
-    public CharacterStat Power;
-    public CharacterStat HP;
+    public Character character;
 
     public ItemSlotList itemSlotList;
     public EquipmentSlotList equipSlotList;
@@ -15,8 +13,17 @@ public class CharacterAction : MonoBehaviour
     void Awake()
     {
         if (instance == null) instance = this;
-        itemSlotList.OnRightClickEvent += ShowTooltip;
         equipSlotList.OnRightClickEvent += Unequip;
+    }
+    private void OnEnable()
+    {
+        itemSlotList.OnRightClickEvent += ShowTooltip;
+        itemSlotList.SetupEvent();
+    }
+    private void OnDisable()
+    {
+        itemSlotList.RemoveEvent();
+        itemSlotList.OnRightClickEvent -= ShowTooltip;
     }
     private void OnValidate()
     {

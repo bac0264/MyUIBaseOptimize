@@ -13,10 +13,10 @@ public class CharacterStatUI : MonoBehaviour
     {
         if (instance == null) instance = this;
     }
-    public void UpdateCharacterStat(CharacterAction characterStat)
+    public void UpdateCharacterStat(EquipmentPanel characterStat)
     {
-        hpStat.text = characterStat.HP.Value.ToString();
-        dameStat.text = characterStat.Dame.Value.ToString();
-        powerStat.text = characterStat.Power.Value.ToString();
+        hpStat.text = characterStat.character.HP.Value.ToString();
+        dameStat.text = characterStat.character.Dame.Value.ToString();
+        powerStat.text = characterStat.character.Power.Value.ToString();
     }
 }

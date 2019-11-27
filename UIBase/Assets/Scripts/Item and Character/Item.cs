@@ -11,7 +11,7 @@ public class Item
     public float level; // level item
     public float levelUpgrade; // color
     public bool isEquip; // duoc trang bi vao hero
-    public bool isUpgrade; // duoc chon vao upgradeSlot
+    public bool isForgingUpgrade; // duoc chon vao upgradeSlot
 
     public readonly float dame = 10;
     public readonly float power = 5;
@@ -75,19 +75,19 @@ public class Item
             levelUpgrade += value;
         }
     }
-    public void Equip(CharacterAction c)
+    public void Equip(EquipmentPanel c)
     {
         mod1 = new StatModifier(dame, StatModType.Flat);
         mod2 = new StatModifier(hp, StatModType.Flat);
         mod3 = new StatModifier(power, StatModType.Flat);
-        c.Dame.AddModifier(mod1);
-        c.HP.AddModifier(mod2);
-        c.Power.AddModifier(mod3);
+        c.character.Dame.AddModifier(mod1);
+        c.character.HP.AddModifier(mod2);
+        c.character.Power.AddModifier(mod3);
     }
-    public void Unequip(CharacterAction c)
+    public void Unequip(EquipmentPanel c)
     {
-        c.Dame.RemoveModifier(mod1);
-        c.HP.RemoveModifier(mod2);
-        c.Power.RemoveModifier(mod3);
+        c.character.Dame.RemoveModifier(mod1);
+        c.character.HP.RemoveModifier(mod2);
+        c.character.Power.RemoveModifier(mod3);
     }
 }

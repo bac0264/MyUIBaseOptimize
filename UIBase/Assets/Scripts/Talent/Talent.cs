@@ -32,7 +32,7 @@ public class Talent
         this.type = type;
         this.level = level;
     }
-    public void AddTalent(CharacterAction c)
+    public void AddTalent(EquipmentPanel c)
     {
         mod1 = new StatModifier(HP_AllHero, StatModType.Flat);
         mod2 = new StatModifier(ATK_AllHero, StatModType.Flat);
@@ -41,12 +41,12 @@ public class Talent
         mod5 = new StatModifier(HP_Levelup_In_Battle, StatModType.Flat);
         mod6 = new StatModifier(Fire_Rate_Percent, StatModType.PercentAdd);
         mod7 = new StatModifier(CoinBonus_In_Battle_Percent, StatModType.PercentAdd);
-        c.HP.AddModifier(mod1);
-        c.Dame.AddModifier(mod2);
+        c.character.HP.AddModifier(mod1);
+        c.character.Dame.AddModifier(mod2);
     }
-    public void RemoveTalent(CharacterAction c)
+    public void RemoveTalent(EquipmentPanel c)
     {
-        c.HP.RemoveModifier(mod1);
-        c.Dame.RemoveModifier(mod2);
+        c.character.HP.RemoveModifier(mod1);
+        c.character.Dame.RemoveModifier(mod2);
     }
 }

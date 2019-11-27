@@ -12,13 +12,19 @@ public class ItemSlotList : MonoBehaviour
     public virtual void Start()
     {
         SetupData();
-        SetupEvent();
     }
     public void SetupEvent()
     {
         foreach (ItemSlot slot in itemSlots)
         {
             slot.OnRightClickEvent += OnRightClickEvent;
+        }
+    }
+    public void RemoveEvent()
+    {
+        foreach (ItemSlot slot in itemSlots)
+        {
+            slot.OnRightClickEvent -= OnRightClickEvent;
         }
     }
     public void SetupData()
@@ -97,6 +103,7 @@ public class ItemSlotList : MonoBehaviour
         Item _item = itemManager.GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
         _itemSlot.ITEM = _item;
     }
+    // Equipment
     public bool RemoveToEquip(Item item)
     {
         ItemSlot _itemSlot = GetItemSlot(item);
@@ -118,6 +125,30 @@ public class ItemSlotList : MonoBehaviour
                 item.isEquip = false;
                 _itemSlot.ITEM = item;
                 itemManager.SaveItemIntoPlayerPrefX();
+                return true;
+            }
+        }
+    }
+    // Forging Ugrade
+    public bool RemoveToEquipForgingUpgrade(Item item)
+    {
+        ItemSlot _itemSlot = GetItemSlot(item);
+        if (item == null) return false;
+        item.isForgingUpgrade = true;
+        _itemSlot.ITEM = item;
+        return true;
+    }
+    public bool AddToUnequipForgingUpgrade(Item item)
+    {
+        if (item == null) return false;
+        else
+        {
+            ItemSlot _itemSlot = GetItemSlot(item);
+            if (_itemSlot == null) return false;
+            else
+            {
+                item.isForgingUpgrade = false;
+                _itemSlot.ITEM = item;
                 return true;
             }
         }

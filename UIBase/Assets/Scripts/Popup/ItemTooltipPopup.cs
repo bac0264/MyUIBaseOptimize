@@ -76,7 +76,7 @@ public class ItemTooltipPopup : BasePopup
 
     public void Equip()
     {
-        CharacterAction character = CharacterAction.instance;
+        EquipmentPanel character = EquipmentPanel.instance;
         if (character != null && item != null && item.value > 0)
         {
             character.Equip(item);

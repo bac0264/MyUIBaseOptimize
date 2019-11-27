@@ -11,14 +11,17 @@ public class EquipmentSlotList : MonoBehaviour
 
     public virtual void Start()
     {
-        SetupData();
         SetupEvent();
     }
-    public void SetupData()
+    private void OnEnable()
+    {
+        SetupData();
+    }
+    void SetupData()
     {
         itemManager = DIContainer.GetModule<IItemManager>();
         List<Item> item = itemManager.EquipmentItemList();
-        CharacterAction character = CharacterAction.instance;
+        EquipmentPanel character = EquipmentPanel.instance;
         for (int i = 0; i < equipSlots.Length; i++)
         {
             for (int j = 0; j < item.Count; j++)
@@ -26,7 +29,7 @@ public class EquipmentSlotList : MonoBehaviour
                 if ((float)equipSlots[i].type.type == item[j].type)
                 {
                     equipSlots[i].ITEM = item[j];
-                    if(character != null)
+                    if (character != null)
                     {
                         equipSlots[i].ITEM.Equip(character);
                         if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(character);
@@ -59,18 +62,14 @@ public class EquipmentSlotList : MonoBehaviour
         }
         else
         {
-            if (CharacterAction.instance != null)
+            if (EquipmentPanel.instance != null)
             {
-                if (CharacterAction.instance.itemSlotList.AddToUnequip(_itemSlot.ITEM))
-                {
-                    _itemSlot.ITEM.Unequip(CharacterAction.instance);
-                    if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(CharacterAction.instance);
-                    _itemSlot.ITEM = item;
-                    return true;
-                }
+                EquipmentPanel.instance.Unequip(_itemSlot.ITEM);
+                _itemSlot.ITEM = item;
+                return true;
             }
-            return false;
         }
+        return false;
     }
     public bool RemoveToUnequip(Item item)
     {

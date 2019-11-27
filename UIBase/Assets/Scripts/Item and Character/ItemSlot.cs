@@ -11,6 +11,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Image icon;
     public Image backGround;
     public Image isEquip;
+    public Image isForgingAndUpgrade;
     public Image typeIcon;
     public Text level;
     public Text amount;
@@ -26,7 +27,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                 backGround.gameObject.SetActive(false);
                 _item = null;
             }
-            else 
+            else
             {
                 ItemDataBase itemDB = ItemDataBase.instance;
                 if (itemDB != null)
@@ -86,6 +87,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                         amount.gameObject.SetActive(true);
                     }
                     //elseamount.gameObject.SetActive(false);
+                    if (isForgingAndUpgrade != null)
+                    {
+                        if (_item.isForgingUpgrade) isForgingAndUpgrade.gameObject.SetActive(true);
+                        else isForgingAndUpgrade.gameObject.SetActive(false);
+                    }
                 }
             }
         }
