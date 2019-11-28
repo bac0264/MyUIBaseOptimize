@@ -2,19 +2,19 @@
 using System.Collections;
 
 [System.Serializable]
-public class Talent 
+public class Talent
 {
     public int level;
     public int type;
 
-    public float HP_AllHero;
-    public float ATK_AllHero;
-    public float HP_EOP; // Effect of potion
-    public float IncreasedStandardDamagePercent;
-    public float Dame_Resistance;
-    public float HP_Levelup_In_Battle;
-    public float Fire_Rate_Percent;
-    public float CoinBonus_In_Battle_Percent;
+    public readonly float HP_AllHero = 1;
+    public readonly float ATK_AllHero = 1;
+    public readonly float HP_EOP = 1; // Effect of potion
+    public readonly float IncreasedStandardDamagePercent = 1;
+    public readonly float Dame_Resistance = 1;
+    public readonly float HP_Levelup_In_Battle = 1;
+    public readonly float Fire_Rate_Percent = 1;
+    public readonly float CoinBonus_In_Battle_Percent = 1 ;
 
     private StatModifier mod1;
     private StatModifier mod2;
@@ -32,21 +32,21 @@ public class Talent
         this.type = type;
         this.level = level;
     }
-    public void AddTalent(EquipmentPanel c)
+    public void AddTalent(Character c)
     {
-        mod1 = new StatModifier(HP_AllHero, StatModType.Flat);
-        mod2 = new StatModifier(ATK_AllHero, StatModType.Flat);
-        mod3 = new StatModifier(HP_EOP, StatModType.Flat);
-        mod4 = new StatModifier(IncreasedStandardDamagePercent, StatModType.PercentAdd);
-        mod5 = new StatModifier(HP_Levelup_In_Battle, StatModType.Flat);
-        mod6 = new StatModifier(Fire_Rate_Percent, StatModType.PercentAdd);
-        mod7 = new StatModifier(CoinBonus_In_Battle_Percent, StatModType.PercentAdd);
-        c.character.HP.AddModifier(mod1);
-        c.character.Dame.AddModifier(mod2);
+        mod1 = new StatModifier(HP_AllHero * (level + 1), StatModType.Flat);
+        mod2 = new StatModifier(ATK_AllHero * (level + 1), StatModType.Flat);
+        mod3 = new StatModifier(HP_EOP * (level + 1), StatModType.Flat);
+        mod4 = new StatModifier(IncreasedStandardDamagePercent * (level + 1), StatModType.PercentAdd);
+        mod5 = new StatModifier(HP_Levelup_In_Battle * (level + 1), StatModType.Flat);
+        mod6 = new StatModifier(Fire_Rate_Percent * (level + 1), StatModType.PercentAdd);
+        mod7 = new StatModifier(CoinBonus_In_Battle_Percent * (level + 1), StatModType.PercentAdd);
+        c.HP.AddModifier(mod1);
+        c.Dame.AddModifier(mod2);
     }
-    public void RemoveTalent(EquipmentPanel c)
+    public void RemoveTalent(Character c)
     {
-        c.character.HP.RemoveModifier(mod1);
-        c.character.Dame.RemoveModifier(mod2);
+        c.HP.RemoveModifier(mod1);
+        c.Dame.RemoveModifier(mod2);
     }
 }

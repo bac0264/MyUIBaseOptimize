@@ -30,7 +30,7 @@ public class TalentSlotList : MonoBehaviour
 
             talentSlots[i].TALENT = ele1.Value;
             i++;
-            Debug.Log("type: " +(TypeOfTalent.Type) ele1.Value.type + ", level: " + (ele1.Value.level + 1));
+            Debug.Log("type: " + (TypeOfTalent.Type)ele1.Value.type + ", level: " + (ele1.Value.level + 1));
         }
     }
     private void OnValidate()
@@ -50,7 +50,7 @@ public class TalentSlotList : MonoBehaviour
     public TalentSlot GetTalentSlotHavingMinLevel()
     {
         TalentSlot talent = talentSlots[0];
-        for(int i = 0; i < talentSlots.Length; i++)
+        for (int i = 0; i < talentSlots.Length; i++)
         {
             if (talentSlots[i].TALENT.level <= talent.TALENT.level) talent = talentSlots[i];
         }
@@ -69,7 +69,11 @@ public class TalentSlotList : MonoBehaviour
     {
         TalentSlot talentSlot = GetTalentSlotHavingMinLevel();
         Talent talent = talentSlot.TALENT;
+        if (Character.instance != null)
+            talent.RemoveTalent(Character.instance);
         talent.level++;
+        if (Character.instance != null)
+            talent.AddTalent(Character.instance);
         talentSlot.TALENT = talent;
         talentManager.SaveTalentIntoPlayerPrefX();
     }

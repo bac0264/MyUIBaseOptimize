@@ -18,8 +18,8 @@ public class InitDI : MonoBehaviour
             PlayerPrefs.SetInt("1", 1);
             for (int i = 0; i < 20; i++)
             {
-                int levelUpgrade = Random.Range(0, 2);
-                int type = Random.Range(0, 2);
+                int levelUpgrade = Random.Range(0, 4);
+                int type = Random.Range(0, 4);
                 int id = 0;
 
                 Item item = new Item(0, id, type, 1, 0, levelUpgrade, false);

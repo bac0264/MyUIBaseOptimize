@@ -12,12 +12,19 @@ public class EquipmentSlotList : MonoBehaviour
     public virtual void Start()
     {
         SetupEvent();
+        itemManager = DIContainer.GetModule<IItemManager>();
+        SetupData();
+
     }
     public void SetupData()
     {
-        itemManager = DIContainer.GetModule<IItemManager>();      
+        if (itemManager == null) return;
         List<Item> item = itemManager.EquipmentItemList();
         EquipmentPanel character = EquipmentPanel.instance;
+        if (character != null)
+        {
+            character.character.ResetEquipDataStat();
+        }
         bool check = false;
         for (int i = 0; i < equipSlots.Length; i++)
         {
@@ -29,21 +36,21 @@ public class EquipmentSlotList : MonoBehaviour
                     if (character != null)
                     {
                         equipSlots[i].ITEM.Equip(character);
-                        if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(character);
                     }
                     check = true;
                     break;
                 }
-                if (check)
-                {
-                    check = false;
-                }
-                else
-                {
-                    equipSlots[i].ITEM = null;
-                }
+            }
+            if (check)
+            {
+                check = false;
+            }
+            else
+            {
+                equipSlots[i].ITEM = null;
             }
         }
+        if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(character);
     }
     public void SetupEvent()
     {

@@ -30,7 +30,8 @@ public class ItemSlotList : MonoBehaviour
     }
     public void SetupData()
     {
-        itemManager.LoadAllItem();
+        if (itemManager == null) return;
+            itemManager.LoadAllItem();
         int i = 0;
         List<Item> itemList = new List<Item>();
         foreach (KeyValuePair<string, Item> ele1 in itemManager.GetItemDictionary())
@@ -39,9 +40,9 @@ public class ItemSlotList : MonoBehaviour
             {
                 itemList.Add(ele1.Value);
             }
-    //        Debug.Log("type: " + ele1.Value.type + ", id: " + ele1.Value.id + " ,value: " + ele1.Value.value
-    //+ ", IndexItem: " + ele1.Value.itemIndex + ", isEquip: " + ele1.Value.isEquip
-    //+ ", levelUpgrade: " + ele1.Value.levelUpgrade);
+            //        Debug.Log("type: " + ele1.Value.type + ", id: " + ele1.Value.id + " ,value: " + ele1.Value.value
+            //+ ", IndexItem: " + ele1.Value.itemIndex + ", isEquip: " + ele1.Value.isEquip
+            //+ ", levelUpgrade: " + ele1.Value.levelUpgrade);
         }
         for (; i < itemSlots.Length && i < itemList.Count; i++)
         {

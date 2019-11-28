@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using UnityEngine;
 
 [Serializable]
 public class CharacterStat
@@ -51,6 +52,7 @@ public class CharacterStat
         if (statModifiers.Remove(mod))
         {
             isDirty = true;
+            Debug.Log("run");
             return true;
         }
         return false;
@@ -71,7 +73,15 @@ public class CharacterStat
         }
         return didRemove;
     }
+    public virtual void RemoveAllModifiers()
+    {
 
+        for (int i = statModifiers.Count - 1; i >= 0; i--)
+        {
+            isDirty = true;
+            statModifiers.RemoveAt(i);
+        }
+    }
     protected virtual int CompareModifierOrder(StatModifier a, StatModifier b)
     {
         if (a.Order < b.Order)

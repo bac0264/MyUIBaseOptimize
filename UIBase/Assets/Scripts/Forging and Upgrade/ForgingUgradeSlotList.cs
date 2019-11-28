@@ -121,13 +121,12 @@ public class ForgingUgradeSlotList : MonoBehaviour
             {
                 count_1++;
             }
-            else if (((fuSlot.ITEM.id != itemSlot.ITEM.id && fuSlot.ITEM.type == itemSlot.ITEM.type) ||
-                (fuSlot.ITEM.id == itemSlot.ITEM.id && fuSlot.ITEM.type != itemSlot.ITEM.type))
-                && fuSlot.ITEM.levelUpgrade == itemSlot.ITEM.levelUpgrade)
+            if (fuSlot.ITEM.levelUpgrade == itemSlot.ITEM.levelUpgrade)
             {
-                count_2++;
+                if (fuSlot.ITEM.type != (float)TypeOfItem.Type.Other)
+                    count_2++;
             }
-            else
+
             {
 
             }
@@ -140,12 +139,9 @@ public class ForgingUgradeSlotList : MonoBehaviour
             if (levelUpgrade > KeySave.MAX_LEVELUPGRADE_ITEM) levelUpgrade = KeySave.MAX_LEVELUPGRADE_ITEM;
             foreach (ForgingUgradeSlot itemSlot in fuSlots)
             {
-                if (itemSlot.ITEM != null)
-                {
-                    itemManager.RemoveItem(itemSlot.ITEM);
-                    itemSlot.ITEM.value = 0;
-                    itemSlot.ITEM = itemSlot.ITEM;
-                }
+                itemManager.RemoveItem(itemSlot.ITEM);
+                itemSlot.ITEM.value = 0;
+                itemSlot.ITEM = itemSlot.ITEM;
             }
             Item upgradeItem = new Item(0, id, type, 1, 0, levelUpgrade, false);
             itemManager.AddItem(upgradeItem);
@@ -165,10 +161,6 @@ public class ForgingUgradeSlotList : MonoBehaviour
             {
                 if (itemSlot.ITEM != null)
                 {
-                    if(EquipmentPanel.instance != null)
-                    {
-                        itemSlot.ITEM.Unequip(EquipmentPanel.instance);
-                    }
                     itemManager.RemoveItem(itemSlot.ITEM);
                     itemSlot.ITEM.value = 0;
                     itemSlot.ITEM = itemSlot.ITEM;

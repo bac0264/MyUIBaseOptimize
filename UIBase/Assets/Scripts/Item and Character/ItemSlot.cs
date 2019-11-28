@@ -15,12 +15,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Image typeIcon;
     public Text level;
     public Text amount;
-    public enum TypeOfDisplay
-    {
-        Equip,
-        Upgrade
-    }
-    public TypeOfDisplay display;
     public Action<Item> OnRightClickEvent;
 
     public virtual Item ITEM

@@ -15,6 +15,7 @@ public class EquipmentPanel : MonoBehaviour
         if (instance == null) instance = this;
         equipSlotList.OnRightClickEvent += Unequip;
     }
+
     private void OnEnable()
     {
         PlayerPrefs.SetInt(KeySave.ITEM_DISPLAY, 0);
@@ -32,6 +33,7 @@ public class EquipmentPanel : MonoBehaviour
     }
     private void OnValidate()
     {
+        if (character == null) character = FindObjectOfType<Character>();
         if (itemSlotList == null) itemSlotList = GetComponentInChildren<ItemSlotList>();
         if (equipSlotList == null) equipSlotList = GetComponentInChildren<EquipmentSlotList>();
     }
@@ -66,6 +68,9 @@ public class EquipmentPanel : MonoBehaviour
             {
                 equipSlotList.RemoveToUnequip(item);
                 item.Unequip(this);
+                Debug.Log("item.id: " + item.id + ", " + item.type);
+
+                Debug.Log("unequip");
                 if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(this);
             }
         }

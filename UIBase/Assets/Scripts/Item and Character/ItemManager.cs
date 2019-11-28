@@ -31,6 +31,7 @@ public class ItemManager : IItemManager
         {
             string json = JsonUtility.ToJson(_itemList[i]);
             data.Add(json);
+            //Debug.Log(json);
         }
         PlayerPrefsX.SetStringArray(KeySave.ITEM_LIST, data.ToArray());
     }
