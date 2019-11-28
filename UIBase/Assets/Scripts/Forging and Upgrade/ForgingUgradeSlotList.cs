@@ -21,6 +21,13 @@ public class ForgingUgradeSlotList : MonoBehaviour
             slot.OnRightClickEvent += OnRightClickEvent;
         }
     }
+    public void SetupData()
+    {
+        foreach (ForgingUgradeSlot slot in forgingUgradeSlots)
+        {
+            slot.ITEM = null;
+        }
+    }
     private void OnValidate()
     {
         if (forgingUgradeSlots.Length == 0) forgingUgradeSlots = GetComponentsInChildren<ForgingUgradeSlot>();
@@ -158,6 +165,10 @@ public class ForgingUgradeSlotList : MonoBehaviour
             {
                 if (itemSlot.ITEM != null)
                 {
+                    if(EquipmentPanel.instance != null)
+                    {
+                        itemSlot.ITEM.Unequip(EquipmentPanel.instance);
+                    }
                     itemManager.RemoveItem(itemSlot.ITEM);
                     itemSlot.ITEM.value = 0;
                     itemSlot.ITEM = itemSlot.ITEM;

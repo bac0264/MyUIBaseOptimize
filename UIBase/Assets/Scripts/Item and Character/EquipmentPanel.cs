@@ -17,9 +17,11 @@ public class EquipmentPanel : MonoBehaviour
     }
     private void OnEnable()
     {
+        PlayerPrefs.SetInt(KeySave.ITEM_DISPLAY, 0);
         itemSlotList.OnRightClickEvent += ShowTooltip;
         itemSlotList.SetupEvent();
         itemSlotList.SetupData();
+        equipSlotList.SetupData();
         itemSlotList.DisplayEquipment();
     }
     private void OnDisable()

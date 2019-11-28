@@ -13,15 +13,12 @@ public class EquipmentSlotList : MonoBehaviour
     {
         SetupEvent();
     }
-    private void OnEnable()
+    public void SetupData()
     {
-        SetupData();
-    }
-    void SetupData()
-    {
-        itemManager = DIContainer.GetModule<IItemManager>();
+        itemManager = DIContainer.GetModule<IItemManager>();      
         List<Item> item = itemManager.EquipmentItemList();
         EquipmentPanel character = EquipmentPanel.instance;
+        bool check = false;
         for (int i = 0; i < equipSlots.Length; i++)
         {
             for (int j = 0; j < item.Count; j++)
@@ -34,7 +31,16 @@ public class EquipmentSlotList : MonoBehaviour
                         equipSlots[i].ITEM.Equip(character);
                         if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(character);
                     }
+                    check = true;
                     break;
+                }
+                if (check)
+                {
+                    check = false;
+                }
+                else
+                {
+                    equipSlots[i].ITEM = null;
                 }
             }
         }

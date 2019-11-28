@@ -16,8 +16,10 @@ public class ForgingUpgradePanel : MonoBehaviour
     }
     private void OnEnable()
     {
+        PlayerPrefs.SetInt(KeySave.ITEM_DISPLAY, 1);
         itemSlotList.OnRightClickEvent += Equip;
         itemSlotList.SetupEvent();
+        forgingUpgradeSlotList.SetupData();
         itemSlotList.DisplayFU();
     }
     private void OnDisable()

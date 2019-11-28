@@ -31,7 +31,6 @@ public class ItemManager : IItemManager
         {
             string json = JsonUtility.ToJson(_itemList[i]);
             data.Add(json);
-            Debug.Log(json);
         }
         PlayerPrefsX.SetStringArray(KeySave.ITEM_LIST, data.ToArray());
     }
@@ -95,11 +94,9 @@ public class ItemManager : IItemManager
     }
     public void AddItem(Item item)
     {
-        Debug.Log(GetKey(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString()));
         Item _item = GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
         if (!item.type.Equals(TypeOfItem.Type.Other.ToString()))
         {
-            Debug.Log(GetKey(_item.type.ToString(), _item.id.ToString(), _item.itemIndex.ToString()));
             _item.SetItem(item.level, item.levelUpgrade, item.isEquip);
             _item.AddValue(1);
         }
