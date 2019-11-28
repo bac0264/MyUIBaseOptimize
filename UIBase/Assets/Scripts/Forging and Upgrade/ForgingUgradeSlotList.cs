@@ -127,28 +127,41 @@ public class ForgingUgradeSlotList : MonoBehaviour
         }
         if (count_1 == 3)
         {
-            Item upgradeItem = fuSlot.ITEM;
+            int levelUpgrade = (int)fuSlot.ITEM.levelUpgrade + 1;
+            int id = (int)fuSlot.ITEM.id;
+            int type = (int)fuSlot.ITEM.type;
+            if (levelUpgrade > KeySave.MAX_LEVELUPGRADE_ITEM) levelUpgrade = KeySave.MAX_LEVELUPGRADE_ITEM;
             foreach (ForgingUgradeSlot itemSlot in fuSlots)
             {
-                Item item = new Item(0);
-                itemSlot.ITEM = item;
+                if (itemSlot.ITEM != null)
+                {
+                    itemManager.RemoveItem(itemSlot.ITEM);
+                    itemSlot.ITEM.value = 0;
+                    itemSlot.ITEM = itemSlot.ITEM;
+                }
             }
+            Item upgradeItem = new Item(0, id, type, 1, 0, levelUpgrade, false);
+            itemManager.AddItem(upgradeItem);
             ForgingUgradeSlot upgradeSlot = GetUpgradeForgingUgradeSlot();
-            upgradeItem.AddLevelUpgrade(1);
             upgradeSlot.ITEM = upgradeItem;
             itemManager.SaveItemIntoPlayerPrefX();
             return 1;
         }
-        else if (count_1 < 3 && count_2 == 3)
+        else if (count_1 != 3 && count_2 == 3)
         {
             int type = UnityEngine.Random.Range((int)TypeOfItem.Type.Weapon, (int)TypeOfItem.Type.Other);
-            fuSlot.ITEM.AddLevelUpgrade(1);
-            int levelUpgrade = (int)fuSlot.ITEM.levelUpgrade;
+            int levelUpgrade = (int)fuSlot.ITEM.levelUpgrade + 1;
+            if (levelUpgrade > KeySave.MAX_LEVELUPGRADE_ITEM) levelUpgrade = KeySave.MAX_LEVELUPGRADE_ITEM;
             Item upgradeItem = new Item(0, 0, type, 1, 0, levelUpgrade, false);
+            itemManager.AddItem(upgradeItem);
             foreach (ForgingUgradeSlot itemSlot in fuSlots)
             {
-                Item item = new Item(0);
-                itemSlot.ITEM = item;
+                if (itemSlot.ITEM != null)
+                {
+                    itemManager.RemoveItem(itemSlot.ITEM);
+                    itemSlot.ITEM.value = 0;
+                    itemSlot.ITEM = itemSlot.ITEM;
+                }
             }
             ForgingUgradeSlot upgradeSlot = GetUpgradeForgingUgradeSlot();
             upgradeSlot.ITEM = upgradeItem;

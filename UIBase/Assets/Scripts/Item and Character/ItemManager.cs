@@ -27,18 +27,16 @@ public class ItemManager : IItemManager
             }
         }
         SortLocal.selectionSort(_itemList, _itemList.Count);
-        for(int i = 0; i < _itemList.Count; i++)
+        for (int i = 0; i < _itemList.Count; i++)
         {
-            if (_itemList[i].value > 0)
-            {
-                string json = JsonUtility.ToJson(_itemList[i]);
-                data.Add(json);
-            }
+            string json = JsonUtility.ToJson(_itemList[i]);
+            data.Add(json);
+            Debug.Log(json);
         }
         PlayerPrefsX.SetStringArray(KeySave.ITEM_LIST, data.ToArray());
     }
 
-    private void LoadAllItem()
+    public void LoadAllItem()
     {
         itemList = new Dictionary<string, Item>();
         string[] data = PlayerPrefsX.GetStringArray(KeySave.ITEM_LIST);
@@ -68,7 +66,7 @@ public class ItemManager : IItemManager
     {
         if (itemList.ContainsKey(GetKey(type, id, itemIndex)) && type.Equals(((float)TypeOfItem.Type.Other).ToString()))
             return itemList[GetKey(type, id, itemIndex)];
-        else 
+        else
         {
             int indexMax = GetMax(type, id);
             Item item = new Item(indexMax, float.Parse(id), float.Parse(type), 0, 0, 0, false);
@@ -87,9 +85,9 @@ public class ItemManager : IItemManager
             {
                 i = -1;
             }
-            else 
+            else
             {
-                return j;
+                return j ;
             }
             j++;
         }
@@ -97,17 +95,25 @@ public class ItemManager : IItemManager
     }
     public void AddItem(Item item)
     {
+        Debug.Log(GetKey(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString()));
         Item _item = GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
         if (!item.type.Equals(TypeOfItem.Type.Other.ToString()))
         {
+            Debug.Log(GetKey(_item.type.ToString(), _item.id.ToString(), _item.itemIndex.ToString()));
             _item.SetItem(item.level, item.levelUpgrade, item.isEquip);
             _item.AddValue(1);
         }
-        else 
+        else
         {
             _item.AddValue(item.value);
         }
-        SaveItemIntoPlayerPrefX();
+    }
+    public void RemoveItem(Item item)
+    {
+        if (itemList.ContainsKey(GetKey(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString())))
+        {
+            itemList.Remove(GetKey(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString()));
+        }
     }
     public List<Item> EquipmentItemList()
     {

@@ -73,7 +73,7 @@ public class TalentManager : ITalentManager
         foreach (KeyValuePair<string, Talent> ele1 in talentList)
         {
             _talentList.Add(ele1.Value);
-            Debug.Log("type: " + (TypeOfTalent.Type)ele1.Value.type+" , Level: "+ele1.Value.level);
+            //Debug.Log("type: " + (TypeOfTalent.Type)ele1.Value.type+" , Level: "+ele1.Value.level);
         }
         return _talentList;
     }

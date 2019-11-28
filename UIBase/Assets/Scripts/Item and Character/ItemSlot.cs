@@ -22,77 +22,88 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         set
         {
             _item = value;
-            if (_item.value == 0)
+            if (_item != null)
             {
-                backGround.gameObject.SetActive(false);
-                _item = null;
+                if (_item.value == 0)
+                {
+                    HideUI();
+                    _item = null;
+                }
+                else
+                {
+                    ItemDataBase itemDB = ItemDataBase.instance;
+                    if (itemDB != null)
+                    {
+                        // Set up Icon
+                        if (icon != null)
+                        {
+                            icon.sprite = itemDB.GetItemSprite(ITEM.type.ToString(),
+                                ITEM.id.ToString(), ITEM.levelUpgrade.ToString());
+                            if (icon.sprite == null)
+                            {
+                                icon.gameObject.SetActive(false);
+                                backGround.gameObject.SetActive(false);
+                                // _item = null;
+                                return;
+                            }
+                            icon.gameObject.SetActive(true);
+                        }
+                        //elseicon.gameObject.SetActive(false);
+
+                        // Set up Background
+                        if (backGround != null)
+                        {
+                            backGround.color = itemDB.GetBackground(ITEM.levelUpgrade);
+                            backGround.gameObject.SetActive(true);
+                        }
+                        //elsebackGround.gameObject.SetActive(false);
+
+                        // Set up level text
+                        if (level != null && ITEM.type != (float)TypeOfItem.Type.Other)
+                        {
+                            level.text = (ITEM.level + 1).ToString();
+                            level.gameObject.SetActive(true);
+                        }
+                        //elselevel.gameObject.SetActive(false);
+
+                        // Set up equipIcon
+                        if (isEquip != null)
+                        {
+                            if (_item.isEquip) isEquip.gameObject.SetActive(true);
+                            else isEquip.gameObject.SetActive(false);
+                        }
+                        //elseisEquip.gameObject.SetActive(false);
+
+                        // Set up type of Item
+                        if (typeIcon != null && ITEM.type != (float)TypeOfItem.Type.Other)
+                        {
+                            typeIcon.color = itemDB.GetItemType(ITEM.type.ToString());
+                            typeIcon.gameObject.SetActive(true);
+                        }
+                        else if (ITEM.type == (float)TypeOfItem.Type.Other)
+                        {
+                            typeIcon.gameObject.SetActive(false);
+                        }
+                        //elsetypeIcon.gameObject.SetActive(false);
+
+                        // Set up amount of Item
+                        if (amount != null)
+                        {
+                            amount.text = ITEM.value.ToString();
+                            amount.gameObject.SetActive(true);
+                        }
+                        //elseamount.gameObject.SetActive(false);
+                        if (isForgingAndUpgrade != null)
+                        {
+                            if (_item.isForgingUpgrade) isForgingAndUpgrade.gameObject.SetActive(true);
+                            else isForgingAndUpgrade.gameObject.SetActive(false);
+                        }
+                    }
+                }
             }
             else
             {
-                ItemDataBase itemDB = ItemDataBase.instance;
-                if (itemDB != null)
-                {
-                    // Set up Icon
-                    if (icon != null)
-                    {
-                        icon.sprite = itemDB.GetItemSprite(ITEM.type.ToString(),
-                            ITEM.id.ToString(), ITEM.levelUpgrade.ToString());
-                        if (icon.sprite == null)
-                        {
-                            icon.gameObject.SetActive(false);
-                            backGround.gameObject.SetActive(false);
-                            _item = null;
-                            return;
-                        }
-                        icon.gameObject.SetActive(true);
-                    }
-                    //elseicon.gameObject.SetActive(false);
-
-                    // Set up Background
-                    if (backGround != null)
-                    {
-                        backGround.color = itemDB.GetBackground(ITEM.levelUpgrade);
-                        backGround.gameObject.SetActive(true);
-                    }
-                    //elsebackGround.gameObject.SetActive(false);
-
-                    // Set up level text
-                    if (level != null && ITEM.type != (float)TypeOfItem.Type.Other)
-                    {
-                        level.text = (ITEM.level + 1).ToString();
-                        level.gameObject.SetActive(true);
-                    }
-                    //elselevel.gameObject.SetActive(false);
-
-                    // Set up equipIcon
-                    if (isEquip != null)
-                    {
-                        if (_item.isEquip) isEquip.gameObject.SetActive(true);
-                        else isEquip.gameObject.SetActive(false);
-                    }
-                    //elseisEquip.gameObject.SetActive(false);
-
-                    // Set up type of Item
-                    if (typeIcon != null && ITEM.type != (float)TypeOfItem.Type.Other)
-                    {
-                        typeIcon.color = itemDB.GetItemType(ITEM.type.ToString());
-                        typeIcon.gameObject.SetActive(true);
-                    }
-                    //elsetypeIcon.gameObject.SetActive(false);
-
-                    // Set up amount of Item
-                    if (amount != null)
-                    {
-                        amount.text = ITEM.value.ToString();
-                        amount.gameObject.SetActive(true);
-                    }
-                    //elseamount.gameObject.SetActive(false);
-                    if (isForgingAndUpgrade != null)
-                    {
-                        if (_item.isForgingUpgrade) isForgingAndUpgrade.gameObject.SetActive(true);
-                        else isForgingAndUpgrade.gameObject.SetActive(false);
-                    }
-                }
+                HideUI();
             }
         }
         get
@@ -100,7 +111,14 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             return _item;
         }
     }
-
+    public void HideUI()
+    {
+        if (backGround != null) backGround.gameObject.SetActive(false);
+        if (isEquip != null) isEquip.gameObject.SetActive(false);
+        if (isForgingAndUpgrade != null) isForgingAndUpgrade.gameObject.SetActive(false);
+        if (level != null) level.gameObject.SetActive(false);
+        if (amount != null) amount.gameObject.SetActive(false);
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData != null && (eventData.button == PointerEventData.InputButton.Right || eventData.clickCount > 0))

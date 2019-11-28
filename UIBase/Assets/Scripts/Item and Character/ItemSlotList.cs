@@ -11,6 +11,7 @@ public class ItemSlotList : MonoBehaviour
 
     public virtual void Start()
     {
+        itemManager = DIContainer.GetModule<IItemManager>();
         SetupData();
     }
     public void SetupEvent()
@@ -29,26 +30,26 @@ public class ItemSlotList : MonoBehaviour
     }
     public void SetupData()
     {
-        itemManager = DIContainer.GetModule<IItemManager>();
+        itemManager.LoadAllItem();
         int i = 0;
+        List<Item> itemList = new List<Item>();
         foreach (KeyValuePair<string, Item> ele1 in itemManager.GetItemDictionary())
         {
-            if (i < itemSlots.Length && ele1.Value.value > 0)
+            if (ele1.Value.value > 0)
             {
-                itemSlots[i].ITEM = ele1.Value;
-                Debug.Log("type: " + ele1.Value.type + ", id: " + ele1.Value.id + " ,value: " + ele1.Value.value
-                    + ", IndexItem: " + ele1.Value.itemIndex + ", isEquip: " + ele1.Value.isEquip
-                    + ", levelUpgrade: " + ele1.Value.levelUpgrade);
-                i++;
+                itemList.Add(ele1.Value);
             }
-            else if (i >= itemSlots.Length)
-            {
-                break;
-            }
-            else
-            {
-
-            }
+    //        Debug.Log("type: " + ele1.Value.type + ", id: " + ele1.Value.id + " ,value: " + ele1.Value.value
+    //+ ", IndexItem: " + ele1.Value.itemIndex + ", isEquip: " + ele1.Value.isEquip
+    //+ ", levelUpgrade: " + ele1.Value.levelUpgrade);
+        }
+        for (; i < itemSlots.Length && i < itemList.Count; i++)
+        {
+            itemSlots[i].ITEM = itemList[i];
+        }
+        for (; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].ITEM = null;
         }
     }
     private void OnValidate()

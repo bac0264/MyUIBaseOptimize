@@ -21,5 +21,7 @@ public interface IItemManager
     Dictionary<string, Item> GetItemDictionary();
     void SaveItemIntoPlayerPrefX();
     void AddItem(Item item);
+    void RemoveItem(Item item);
+    void LoadAllItem();
     List<Item> EquipmentItemList();
 }
