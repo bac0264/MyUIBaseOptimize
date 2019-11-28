@@ -73,6 +73,7 @@ public class Item
         if (value > 0)
         {
             levelUpgrade += value;
+            if (levelUpgrade > KeySave.MAX_LEVELUPGRADE_ITEM) levelUpgrade = KeySave.MAX_LEVELUPGRADE_ITEM;
         }
     }
     public void Equip(EquipmentPanel c)

@@ -12,6 +12,7 @@ public class ForgingUgradeSlotList : MonoBehaviour
     public virtual void Start()
     {
         SetupEvent();
+        itemManager = DIContainer.GetModule<IItemManager>();
     }
     public void SetupEvent()
     {
@@ -47,7 +48,7 @@ public class ForgingUgradeSlotList : MonoBehaviour
     {
         foreach (ForgingUgradeSlot itemSlot in forgingUgradeSlots)
         {
-            if (itemSlot.ITEM == null)
+            if (itemSlot.ITEM == null && itemSlot.typeOfFU.ToString().Equals(ForgingUgradeSlot.Type.Equip.ToString()))
             {
                 return itemSlot;
             }
@@ -58,14 +59,105 @@ public class ForgingUgradeSlotList : MonoBehaviour
     {
         foreach (ForgingUgradeSlot itemSlot in forgingUgradeSlots)
         {
-            if (item == itemSlot.ITEM)
+            if (item == itemSlot.ITEM && itemSlot.typeOfFU.ToString().Equals(ForgingUgradeSlot.Type.Equip.ToString()))
             {
                 return itemSlot;
             }
         }
         return null;
     }
-
-
+    ForgingUgradeSlot GetFirstForgingUgradeSlot()
+    {
+        foreach (ForgingUgradeSlot itemSlot in forgingUgradeSlots)
+        {
+            if (itemSlot.ITEM != null && itemSlot.typeOfFU.ToString().Equals(ForgingUgradeSlot.Type.Equip.ToString()))
+            {
+                return itemSlot;
+            }
+        }
+        return null;
+    }
+    ForgingUgradeSlot GetUpgradeForgingUgradeSlot()
+    {
+        foreach (ForgingUgradeSlot itemSlot in forgingUgradeSlots)
+        {
+            if (itemSlot.typeOfFU.ToString().Equals(ForgingUgradeSlot.Type.Upgrade.ToString()))
+            {
+                return itemSlot;
+            }
+        }
+        return null;
+    }
     #endregion
+    public int Upgrade()
+    {
+        // return 0 => false, return 1 => upgrading follow type 1, return 2 => upgrading follow type 2
+        ForgingUgradeSlot fuSlot = GetNullForgingUgradeSlot();
+        // check, if having Null Slot -> still no having full of fuItem
+        if (fuSlot != null) return 0;
+        // get firstItem
+        fuSlot = GetFirstForgingUgradeSlot();
+        List<ForgingUgradeSlot> fuSlots = new List<ForgingUgradeSlot>();
+        foreach (ForgingUgradeSlot itemSlot in forgingUgradeSlots)
+        {
+            if (itemSlot.typeOfFU.ToString().Equals(ForgingUgradeSlot.Type.Equip.ToString()))
+            {
+                fuSlots.Add(itemSlot);
+            }
+        }
+        int count_1 = 0; // count 3 types are the same about id, type, levelupgrade
+        int count_2 = 0; // count 3 type are the same about levelupgrade
+        foreach (ForgingUgradeSlot itemSlot in fuSlots)
+        {
+            if (fuSlot.ITEM.id == itemSlot.ITEM.id && fuSlot.ITEM.type == itemSlot.ITEM.type
+                && fuSlot.ITEM.levelUpgrade == itemSlot.ITEM.levelUpgrade)
+            {
+                count_1++;
+            }
+            else if (((fuSlot.ITEM.id != itemSlot.ITEM.id && fuSlot.ITEM.type == itemSlot.ITEM.type) ||
+                (fuSlot.ITEM.id == itemSlot.ITEM.id && fuSlot.ITEM.type != itemSlot.ITEM.type))
+                && fuSlot.ITEM.levelUpgrade == itemSlot.ITEM.levelUpgrade)
+            {
+                count_2++;
+            }
+            else
+            {
+
+            }
+        }
+        if (count_1 == 3)
+        {
+            Item upgradeItem = fuSlot.ITEM;
+            foreach (ForgingUgradeSlot itemSlot in fuSlots)
+            {
+                Item item = new Item(0);
+                itemSlot.ITEM = item;
+            }
+            ForgingUgradeSlot upgradeSlot = GetUpgradeForgingUgradeSlot();
+            upgradeItem.AddLevelUpgrade(1);
+            upgradeSlot.ITEM = upgradeItem;
+            itemManager.SaveItemIntoPlayerPrefX();
+            return 1;
+        }
+        else if (count_1 < 3 && count_2 == 3)
+        {
+            int type = UnityEngine.Random.Range((int)TypeOfItem.Type.Weapon, (int)TypeOfItem.Type.Other);
+            fuSlot.ITEM.AddLevelUpgrade(1);
+            int levelUpgrade = (int)fuSlot.ITEM.levelUpgrade;
+            Item upgradeItem = new Item(0, 0, type, 1, 0, levelUpgrade, false);
+            foreach (ForgingUgradeSlot itemSlot in fuSlots)
+            {
+                Item item = new Item(0);
+                itemSlot.ITEM = item;
+            }
+            ForgingUgradeSlot upgradeSlot = GetUpgradeForgingUgradeSlot();
+            upgradeSlot.ITEM = upgradeItem;
+            itemManager.SaveItemIntoPlayerPrefX();
+            return 2;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }

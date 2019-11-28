@@ -47,4 +47,9 @@ public class ForgingUpgradePanel : MonoBehaviour
             }
         }
     }
+    public void UpgradeItem()
+    {       
+        int upgrade = forgingUpgradeSlotList.Upgrade();
+        if (upgrade == 2 || upgrade == 1) itemSlotList.SetupData();
+    }
 }
