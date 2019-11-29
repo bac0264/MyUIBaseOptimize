@@ -126,6 +126,7 @@ public class ForgingUgradeSlotList : MonoBehaviour
         }
         if (checkType_3)
             return Upgrade_Type_3(fuSlot, fuSlots);
+        return 0;
     }
     public void GetTypeOfUpgrade_1_2(ref int count_1, ref int count_2, ForgingUgradeSlot fuSlot, List<ForgingUgradeSlot> fuSlots)
     {
