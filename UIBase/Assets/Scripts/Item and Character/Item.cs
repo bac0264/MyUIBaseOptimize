@@ -12,7 +12,22 @@ public class Item
     public float levelUpgrade; // color
     public bool isEquip; // duoc trang bi vao hero
     public bool isForgingUpgrade; // duoc chon vao upgradeSlot
-
+    public float VALUE
+    {
+        set
+        {
+            this.value = value;
+            if (this.value == 0)
+            {
+                IItemManager itemManager = DIContainer.GetModule<IItemManager>();
+                itemManager.RemoveItem(this);
+            }
+        }
+        get
+        {
+            return this.value;
+        }
+    }
     public readonly float dame = 10;
     public readonly float power = 5;
     public readonly float hp = 100;
