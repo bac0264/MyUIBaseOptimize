@@ -56,10 +56,14 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                         }
 
                         // Set up level text
-                        if (level != null && ITEM.type != (float)TypeOfItem.Type.Other)
+                        if (level != null)
                         {
-                            level.text = (ITEM.level + 1).ToString();
-                            level.gameObject.SetActive(true);
+                            if (ITEM.type != (float)TypeOfItem.Type.Other)
+                            {
+                                level.text = (ITEM.level + 1).ToString();
+                                level.gameObject.SetActive(true);
+                            }
+                            else level.gameObject.SetActive(false);
                         }
 
 
@@ -71,7 +75,13 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                         }
                         else if (ITEM.type == (float)TypeOfItem.Type.Other)
                         {
-                            typeIcon.gameObject.SetActive(false);
+                            if (ITEM.id != 0)
+                            {
+                                typeIcon.color = itemDB.GetItemType((ITEM.id - 1).ToString());
+                                typeIcon.gameObject.SetActive(true);
+                            }
+                            else
+                                typeIcon.gameObject.SetActive(false);
                         }
 
                         // Set up amount of Item
@@ -85,7 +95,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                         {
                             if (isEquip != null)
                             {
-                                if (_item.isEquip) isEquip.gameObject.SetActive(true);
+                                if (ITEM.isEquip) isEquip.gameObject.SetActive(true);
                                 else isEquip.gameObject.SetActive(false);
                             }
                         }
@@ -93,7 +103,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                         {
                             if (isForgingAndUpgrade != null)
                             {
-                                if (_item.isForgingUpgrade) isForgingAndUpgrade.gameObject.SetActive(true);
+                                Debug.Log(ITEM.isForgingUpgrade);
+                                if (ITEM.isForgingUpgrade) isForgingAndUpgrade.gameObject.SetActive(true);
                                 else isForgingAndUpgrade.gameObject.SetActive(false);
                             }
                         }

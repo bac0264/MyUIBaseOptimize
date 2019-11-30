@@ -96,7 +96,7 @@ public class ItemManager : IItemManager
     public void AddItem(Item item)
     {
         Item _item = GetItem(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString());
-        if (!item.type.Equals(TypeOfItem.Type.Other.ToString()))
+        if (item.type != (float)TypeOfItem.Type.Other)
         {
             _item.SetItem(item.level, item.levelUpgrade, item.isEquip);
             _item.AddValue(1);

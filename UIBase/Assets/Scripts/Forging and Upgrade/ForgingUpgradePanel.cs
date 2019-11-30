@@ -3,10 +3,13 @@ using System.Collections;
 
 public class ForgingUpgradePanel : MonoBehaviour
 {
+    public static ForgingUpgradePanel instance;
     public ItemSlotList itemSlotList;
     public ForgingUgradeSlotList forgingUpgradeSlotList;
     private void Awake()
     {
+        if (instance == null) instance = this;
+
         forgingUpgradeSlotList.OnRightClickEvent += Unequip;
     }
     private void OnValidate()
@@ -45,6 +48,7 @@ public class ForgingUpgradePanel : MonoBehaviour
         {
             if (itemSlotList.AddToUnequipForgingUpgrade(item))
             {
+                Debug.Log("run");
                 forgingUpgradeSlotList.RemoveToUnequip(item);
             }
         }
@@ -52,6 +56,7 @@ public class ForgingUpgradePanel : MonoBehaviour
     public void UpgradeItem()
     {       
         int upgrade = forgingUpgradeSlotList.Upgrade();
+        Debug.Log(upgrade);
         if (upgrade == 2 || upgrade == 1 || upgrade == 3) itemSlotList.SetupData();
     }
 }

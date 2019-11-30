@@ -47,14 +47,18 @@ public class TalentSlotList : MonoBehaviour
         }
         return null;
     }
-    public TalentSlot GetTalentSlotHavingMinLevel()
+    public TalentSlot GetRandomTalentSlot()
     {
-        TalentSlot talent = talentSlots[0];
+        TalentSlot talent = GetTalentSlotHavingMaxLevel();
+        List<TalentSlot> talentRandomList = new List<TalentSlot>();
         for (int i = 0; i < talentSlots.Length; i++)
         {
-            if (talentSlots[i].TALENT.level <= talent.TALENT.level) talent = talentSlots[i];
+            int distance = talent.TALENT.level - talentSlots[i].TALENT.level;
+            if (distance > 2) talentRandomList.Add(talentSlots[i]);
         }
-        return talent;
+        if (talentRandomList.Count <= 0) return talent;
+        int j = UnityEngine.Random.Range(0, talentRandomList.Count);
+        return talentRandomList[j];
     }
     public TalentSlot GetTalentSlotHavingMaxLevel()
     {
@@ -67,14 +71,13 @@ public class TalentSlotList : MonoBehaviour
     }
     public void AddLevelRandom()
     {
-        TalentSlot talentSlot = GetTalentSlotHavingMinLevel();
-        Talent talent = talentSlot.TALENT;
+        TalentSlot talentSlot = GetRandomTalentSlot();
         if (Character.instance != null)
-            talent.RemoveTalent(Character.instance);
-        talent.level++;
+            talentSlot.TALENT.RemoveTalent(Character.instance);
+        talentSlot.TALENT.AddLevel(1);
         if (Character.instance != null)
-            talent.AddTalent(Character.instance);
-        talentSlot.TALENT = talent;
+            talentSlot.TALENT.AddTalent(Character.instance);
+        talentSlot.TALENT = talentSlot.TALENT;
         talentManager.SaveTalentIntoPlayerPrefX();
     }
 }

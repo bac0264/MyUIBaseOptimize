@@ -34,6 +34,8 @@ public class ForgingUgradeSlotList : MonoBehaviour
     }
     public bool AddToEquip(Item item)
     {
+        ForgingUgradeSlot upgradeSlot = GetUpgradeForgingUgradeSlot();
+        if (upgradeSlot != null) upgradeSlot.ITEM = null;
         if (item.isForgingUpgrade) return false;
         ForgingUgradeSlot _itemSlot = GetNullForgingUgradeSlot();
         if (_itemSlot == null) return false;
@@ -45,8 +47,7 @@ public class ForgingUgradeSlotList : MonoBehaviour
     {
         ForgingUgradeSlot _itemSlot = GetForgingUgradeSlot(item);
         if (_itemSlot == null) return false;
-        Item _item = new Item(0);
-        _itemSlot.ITEM = _item;
+        _itemSlot.ITEM = null;
         return true;
     }
     // Get Item Slot
@@ -125,7 +126,7 @@ public class ForgingUgradeSlotList : MonoBehaviour
             return Upgrade_Type_2(fuSlot, fuSlots);
         }
         if (checkType_3)
-            return Upgrade_Type_3(fuSlot, fuSlots);
+            return Upgrade_Type_3(fuSlots);
         return 0;
     }
     public void GetTypeOfUpgrade_1_2(ref int count_1, ref int count_2, ForgingUgradeSlot fuSlot, List<ForgingUgradeSlot> fuSlots)
@@ -139,8 +140,10 @@ public class ForgingUgradeSlotList : MonoBehaviour
             }
             if (fuSlot.ITEM.levelUpgrade == itemSlot.ITEM.levelUpgrade)
             {
-                if (fuSlot.ITEM.type != (float)TypeOfItem.Type.Other)
+                if (itemSlot.ITEM.type != (float)TypeOfItem.Type.Other)
+                {
                     count_2++;
+                }
             }
         }
     }
@@ -153,20 +156,23 @@ public class ForgingUgradeSlotList : MonoBehaviour
         {
             if (itemSlot.ITEM.type == (float)TypeOfItem.Type.Other && itemSlot.ITEM.id == 0)
             {
+                Debug.Log("run 1");
                 if (itemSlot.ITEM.value < 10) return false;
                 checkScroll = itemSlot.ITEM; // ITEM.id = 0 && ITEM.type = Other => Scroll
             }
             if (itemSlot.ITEM.type == (float)TypeOfItem.Type.Other && itemSlot.ITEM.id != 0)
             {
+                Debug.Log("run 2");
                 if (itemSlot.ITEM.value < 10) return false;
-                idRuby = itemSlot.ITEM.id + 1;
+                idRuby = itemSlot.ITEM.id - 1;
                 checkRuby = itemSlot.ITEM;
             }
         }
         foreach (ForgingUgradeSlot itemSlot in fuSlots)
         {
-            if (checkScroll != null && checkRuby != null && itemSlot.ITEM.id == idRuby)
+            if (checkScroll != null && checkRuby != null && itemSlot.ITEM.type == idRuby)
             {
+                Debug.Log("run 3");
                 checkScroll.value -= 10;
                 checkRuby.value -= 10;
                 itemSlot.ITEM.AddLevel(1);
@@ -214,8 +220,26 @@ public class ForgingUgradeSlotList : MonoBehaviour
         itemManager.SaveItemIntoPlayerPrefX();
         return 2;
     }
-    public int Upgrade_Type_3(ForgingUgradeSlot fuSlot, List<ForgingUgradeSlot> fuSlots)
+    public int Upgrade_Type_3(List<ForgingUgradeSlot> fuSlots)
     {
+        Item upgradeItem = null;
+        foreach (ForgingUgradeSlot itemSlot in fuSlots)
+        {
+            if (itemSlot.ITEM != null)
+            {
+                if (itemSlot.ITEM.type != (float)TypeOfItem.Type.Other)
+                {
+                    upgradeItem = new Item(itemSlot.ITEM.itemIndex
+                    , itemSlot.ITEM.id, itemSlot.ITEM.type, itemSlot.ITEM.value,
+                    itemSlot.ITEM.level, itemSlot.ITEM.levelUpgrade
+                    , itemSlot.ITEM.isEquip);
+                }
+                ForgingUpgradePanel.instance.Unequip(itemSlot.ITEM);
+            }
+        }
+        ForgingUgradeSlot upgradeSlot = GetUpgradeForgingUgradeSlot();
+        upgradeSlot.ITEM = upgradeItem;
+        itemManager.SaveItemIntoPlayerPrefX();
         return 3;
     }
 }

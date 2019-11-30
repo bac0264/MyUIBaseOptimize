@@ -14,7 +14,7 @@ public class Talent
     public readonly float Dame_Resistance = 1;
     public readonly float HP_Levelup_In_Battle = 1;
     public readonly float Fire_Rate_Percent = 1;
-    public readonly float CoinBonus_In_Battle_Percent = 1 ;
+    public readonly float CoinBonus_In_Battle_Percent = 1;
 
     private StatModifier mod1;
     private StatModifier mod2;
@@ -31,6 +31,10 @@ public class Talent
     {
         this.type = type;
         this.level = level;
+    }
+    public void AddLevel(int level)
+    {
+        if (level > 0) this.level += level;
     }
     public void AddTalent(Character c)
     {

@@ -126,6 +126,7 @@ public class ItemSlotList : MonoBehaviour
             {
                 item.isForgingUpgrade = false;
                 _itemSlot.ITEM = item;
+                Debug.Log(_itemSlot.ITEM.isForgingUpgrade);
                 return true;
             }
         }

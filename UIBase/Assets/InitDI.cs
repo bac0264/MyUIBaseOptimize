@@ -11,28 +11,25 @@ public class InitDI : MonoBehaviour
         DIContainer.SetModule<IItemManager, ItemManager>();
         DIContainer.SetModule<ITalentManager, TalentManager>();
         IItemManager itemManager = DIContainer.GetModule<IItemManager>();
-        ITalentManager talentManger = DIContainer.GetModule<ITalentManager>();
-        List<Talent> talents = talentManger.GetAllTalent();
         if (PlayerPrefs.GetInt("1", 0) == 0)
         {
             PlayerPrefs.SetInt("1", 1);
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 15; i++)
             {
                 int levelUpgrade = Random.Range(0, 4);
                 int type = Random.Range(0, 4);
                 int id = 0;
-
                 Item item = new Item(0, id, type, 1, 0, levelUpgrade, false);
                 itemManager.AddItem(item);
             }
-            //for (int i = 0; i < 20; i++)
-            //{
-            //    int type = (int)TypeOfItem.Type.Other;
-            //    int id = Random.Range((int)OtherType.Type.RUBY_Weapon, (int)OtherType.Type.ENERGON);
+            for (int i = 0; i < 5; i++)
+            {
+                int type = (int)TypeOfItem.Type.Other;
+                int id = i;
 
-            //    Item item = new Item(0, id, type, 10, 0, 0, false);
-            //    itemManager.AddItem(item);
-            //}
+                Item item = new Item(0, id, type, 100, 0, 0, false);
+                itemManager.AddItem(item);
+            }
             itemManager.SaveItemIntoPlayerPrefX();
         }
     }

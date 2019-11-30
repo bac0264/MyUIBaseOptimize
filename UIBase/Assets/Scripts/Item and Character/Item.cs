@@ -44,6 +44,17 @@ public class Item
         this.levelUpgrade = levelUpgrade;
         this.isEquip = isEquip;
     }
+    public Item(float itemIndex, float id, float type, float value, float level, float levelUpgrade, bool isEquip, bool isForgingUpgrade)
+    {
+        this.itemIndex = itemIndex;
+        this.id = id;
+        this.type = type;
+        this.value = value;
+        this.level = level;
+        this.levelUpgrade = levelUpgrade;
+        this.isEquip = isEquip;
+        this.isForgingUpgrade = isForgingUpgrade;
+    }
     public void SetItem(float level, float levelUpgrade, bool isEquip)
     {
         this.level = level;
