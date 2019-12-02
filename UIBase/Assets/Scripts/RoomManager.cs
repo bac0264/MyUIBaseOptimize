@@ -3,10 +3,17 @@ using System.Collections;
 
 public class RoomManager : MonoBehaviour
 {
+    public static RoomManager instance;
     public ItemSlotList itemSlotList;
     public EquipmentPanel equipMentSlotList;
     public ForgingUpgradePanel forgingUpgradePanel;
     public TalentPanel talentPanel;
+
+    public Sprite[] listSprite;
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
     private void OnValidate()
     {
         if (itemSlotList == null) itemSlotList = FindObjectOfType<ItemSlotList>();

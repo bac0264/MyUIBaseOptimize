@@ -51,7 +51,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                         // Set up Background
                         if (backGround != null)
                         {
-                            backGround.color = itemDB.GetBackground(ITEM.levelUpgrade);
+                            backGround.sprite = itemDB.GetBackground(ITEM.levelUpgrade);
                             backGround.gameObject.SetActive(true);
                         }
 
@@ -66,24 +66,24 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                             else level.gameObject.SetActive(false);
                         }
 
-
+                        #region
                         // Set up type of Item
-                        if (typeIcon != null && ITEM.type != (float)TypeOfItem.Type.Other)
-                        {
-                            typeIcon.color = itemDB.GetItemType(ITEM.type.ToString());
-                            typeIcon.gameObject.SetActive(true);
-                        }
-                        else if (ITEM.type == (float)TypeOfItem.Type.Other)
-                        {
-                            if (ITEM.id != 0)
-                            {
-                                typeIcon.color = itemDB.GetItemType((ITEM.id - 1).ToString());
-                                typeIcon.gameObject.SetActive(true);
-                            }
-                            else
-                                typeIcon.gameObject.SetActive(false);
-                        }
-
+                        //if (typeIcon != null && ITEM.type != (float)TypeOfItem.Type.Other)
+                        //{
+                        //    typeIcon.color = itemDB.GetItemType(ITEM.type.ToString());
+                        //    typeIcon.gameObject.SetActive(true);
+                        //}
+                        //else if (ITEM.type == (float)TypeOfItem.Type.Other)
+                        //{
+                        //    if (ITEM.id != 0)
+                        //    {
+                        //        typeIcon.color = itemDB.GetItemType((ITEM.id - 1).ToString());
+                        //        typeIcon.gameObject.SetActive(true);
+                        //    }
+                        //    else
+                        //        typeIcon.gameObject.SetActive(false);
+                        //}
+                        #endregion
                         // Set up amount of Item
                         if (amount != null)
                         {

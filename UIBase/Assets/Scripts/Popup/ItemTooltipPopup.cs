@@ -12,7 +12,7 @@ public class ItemTooltipPopup : BasePopup
     public Text OtherText;
     public Image Background;
     public Image Icon;
-    public Image Type;
+   // public Image Type;
 
     public Button _equip;
     public Button _unequip;
@@ -36,10 +36,10 @@ public class ItemTooltipPopup : BasePopup
                 Power.text = ": "+item.power;
                 if (db != null)
                 {
-                    Background.color = db.GetBackground(item.levelUpgrade);
+                    Background.sprite = db.GetBackground(item.levelUpgrade);
                     Icon.sprite = db.GetItemSprite(item.type.ToString(), item.id.ToString(), item.levelUpgrade.ToString());
-                    Type.color = db.GetItemType(item.type.ToString());
-                    Type.gameObject.SetActive(true);
+                   // Type.color = db.GetItemType(item.type.ToString());
+                   // Type.gameObject.SetActive(true);
                 }
                 _equip.gameObject.SetActive(true);
                 _unequip.gameObject.SetActive(false);
@@ -53,11 +53,11 @@ public class ItemTooltipPopup : BasePopup
                 {
                     if (item.id.ToString().Equals("0"))
                     {
-                        Background.color = db.GetBackground(item.levelUpgrade);
+                        Background.sprite = db.GetBackground(item.levelUpgrade);
                     }
                     else Background.color = new Color(0, 0, 0, 0);
                     Icon.sprite = db.GetItemSprite(item.type.ToString(), item.id.ToString(), item.levelUpgrade.ToString());
-                    Type.gameObject.SetActive(false);
+                    //Type.gameObject.SetActive(false);
                 }
                 _equip.gameObject.SetActive(false);
                 _unequip.gameObject.SetActive(false);
