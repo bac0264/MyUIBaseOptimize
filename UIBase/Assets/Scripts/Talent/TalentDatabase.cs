@@ -5,27 +5,17 @@ using System.Collections.Generic;
 public class TalentDatabase : MonoBehaviour
 {
     public static TalentDatabase instance;
-    public Dictionary<string, Sprite> talentIconList;
+    public Sprite[] backGroundList;
     private void Awake()
     {
         if (instance == null) instance = this;
-        Sprite[] _itemIconList = Resources.LoadAll<Sprite>("SpriteTalent");
-        talentIconList = new Dictionary<string, Sprite>();
-        for (int i = 0; i < _itemIconList.Length; i++)
-        {
-            talentIconList.Add(_itemIconList[i].name, _itemIconList[i]);
-        }
     }
-    public Sprite GetTalentSprite( string type)
+    public Sprite GetBackground(float levelUpgrade)
     {
-        if (talentIconList.ContainsKey(type)) return talentIconList[type];
-        return null;
+        if (levelUpgrade < 4) return backGroundList[0];
+        else if (levelUpgrade >= 4 && levelUpgrade < 8) return backGroundList[1];
+        else if (levelUpgrade >= 8 && levelUpgrade < 12) return backGroundList[2];
+        else return backGroundList[3];
     }
-    public Color GetBackground(float levelUpgrade)
-    {
-        if (levelUpgrade < 4) return Color.white;
-        else if (levelUpgrade >= 4 && levelUpgrade < 8) return Color.green;
-        else if (levelUpgrade >= 8 && levelUpgrade < 12) return Color.blue;
-        else return Color.magenta;
-    }
+
 }

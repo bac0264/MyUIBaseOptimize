@@ -30,7 +30,6 @@ public class TalentSlotList : MonoBehaviour
 
             talentSlots[i].TALENT = ele1.Value;
             i++;
-            Debug.Log("type: " + (TypeOfTalent.Type)ele1.Value.type + ", level: " + (ele1.Value.level + 1));
         }
     }
     private void OnValidate()
