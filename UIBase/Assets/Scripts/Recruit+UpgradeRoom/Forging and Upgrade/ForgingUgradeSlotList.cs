@@ -46,7 +46,7 @@ public class ForgingUgradeSlotList : MonoBehaviour
     public bool RemoveToUnequip(Item item)
     {
         ForgingUgradeSlot _itemSlot = GetForgingUgradeSlot(item);
-        if (_itemSlot == null) return false;
+        if (_itemSlot == null || _itemSlot.typeOfFU == ForgingUgradeSlot.Type.Upgrade ) return false;
         _itemSlot.ITEM = null;
         return true;
     }

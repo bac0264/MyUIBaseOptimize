@@ -87,8 +87,17 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                         // Set up amount of Item
                         if (amount != null)
                         {
-                            amount.text = ITEM.value.ToString();
-                            amount.gameObject.SetActive(true);
+                            if (ITEM.type == (float)TypeOfItem.Type.Other)
+                            {
+                                amount.text = ITEM.value.ToString();
+                                amount.enabled = true;
+                                amount.gameObject.SetActive(true);
+                            }
+                            else
+                            {
+                                amount.enabled = false;
+                                amount.gameObject.SetActive(false);
+                            }
                         }
                         //
                         if (PlayerPrefs.GetInt(KeySave.ITEM_DISPLAY, 0) == 0)

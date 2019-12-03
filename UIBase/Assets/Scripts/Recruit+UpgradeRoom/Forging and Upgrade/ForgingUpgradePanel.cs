@@ -45,11 +45,11 @@ public class ForgingUpgradePanel : MonoBehaviour
     public void Unequip(Item item)
     {
         if (item != null && item.value > 0)
-        {
-            if (itemSlotList.AddToUnequipForgingUpgrade(item))
+        {           
+            if (forgingUpgradeSlotList.RemoveToUnequip(item))
             {
                 Debug.Log("run");
-                forgingUpgradeSlotList.RemoveToUnequip(item);
+                itemSlotList.AddToUnequipForgingUpgrade(item);
             }
         }
     }
