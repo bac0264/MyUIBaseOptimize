@@ -5,8 +5,8 @@ using UnityEngine;
 public class UIAbtractFactory : MonoBehaviour
 {
     public static UIAbtractFactory instance;
-    public Transform container;
-    public Dictionary<string, UIBaseFunction> uiList = new Dictionary<string, UIBaseFunction>();
+    private Transform container;
+    public Dictionary<string, UIBase> uiList = new Dictionary<string, UIBase>();
     private void Awake()
     {
         if (instance == null)
@@ -22,9 +22,9 @@ public class UIAbtractFactory : MonoBehaviour
     }
     private void SetUIDictionary()
     {
-        UIBaseFunction[] uiResourceList = Resources.LoadAll<UIBaseFunction>("UIHidden");
-        uiList = new Dictionary<string, UIBaseFunction>();
-        foreach (UIBaseFunction _ui in uiResourceList)
+        UIBase[] uiResourceList = Resources.LoadAll<UIBase>("UI");
+        uiList = new Dictionary<string, UIBase>();
+        foreach (UIBase _ui in uiResourceList)
         {
             uiList.Add(_ui.type.ToString(), _ui);
         }
@@ -32,39 +32,39 @@ public class UIAbtractFactory : MonoBehaviour
 
     public void UpdateContainer()
     {
-        if (container == null) container = GameObject.FindGameObjectWithTag(KeySave.CONTAINER_POPUP).transform;
+        if (container == null) container = GameObject.FindGameObjectWithTag(KeySave.CONTAINER_UI).transform;
     }
 
-    public void ShowPopup(UIBaseFunction.TypeOfUI type)
+    public void ShowPopup(UIBase.TypeOfUI type)
     {
         switch (type)
         {
-            case UIBaseFunction.TypeOfUI.UI_RecruitAndUpgradeRoom:
-                if (ItemTooltipPopup.instance != null)
+            case UIBase.TypeOfUI.UI_RecruitAndUpgradeRoom:
+                if (UIRecruitAndUpgradeRoom.instance != null)
                 {
-                    ItemTooltipPopup.instance.ShowPopup();
+                    UIRecruitAndUpgradeRoom.instance.ShowUI();
                     return;
                 }
                 break;
         }
         InitUI(type);
     }
-    public UIBaseFunction GetUI(UIBaseFunction.TypeOfUI type)
+    public UIBase GetUI(UIBase.TypeOfUI type)
     {
         switch (type)
         {
-            case UIBaseFunction.TypeOfUI.UI_RecruitAndUpgradeRoom:
+            case UIBase.TypeOfUI.UI_RecruitAndUpgradeRoom:
                 break;
         }
         return null;
     }
-    public void InitUI(UIBaseFunction.TypeOfUI type)
+    public void InitUI(UIBase.TypeOfUI type)
     {
         UpdateContainer();
-        UIBaseFunction popupNeed = uiList[type.ToString()];
+        UIBase popupNeed = uiList[type.ToString()];
         if (popupNeed == null) return;
         GameObject obj = Instantiate(popupNeed.gameObject, container);
-        UIBaseFunction popup = obj.GetComponent<UIBaseFunction>();
+        UIBase popup = obj.GetComponent<UIBase>();
         if (popup != null) popup.ShowUI();
     }
 

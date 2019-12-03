@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CONTAINER_POPUP
+  - CONTAINER_UI
   layers:
   - Default
   - TransparentFX

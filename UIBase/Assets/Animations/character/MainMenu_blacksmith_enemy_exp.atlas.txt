@@ -1,0 +1,146 @@
+
+MainMenu_blacksmith_enemy_exp.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 374
+  rotate: true
+  xy: 572, 120
+  size: 45, 40
+  orig: 45, 40
+  offset: 0, 0
+  index: -1
+bantay_p
+  rotate: false
+  xy: 544, 27
+  size: 43, 49
+  orig: 43, 49
+  offset: 0, 0
+  index: -1
+bong
+  rotate: false
+  xy: 241, 75
+  size: 221, 45
+  orig: 221, 45
+  offset: 0, 0
+  index: -1
+bua
+  rotate: false
+  xy: 267, 242
+  size: 139, 118
+  orig: 139, 118
+  offset: 0, 0
+  index: -1
+buon
+  rotate: false
+  xy: 196, 5
+  size: 78, 36
+  orig: 78, 36
+  offset: 0, 0
+  index: -1
+buon2
+  rotate: false
+  xy: 116, 5
+  size: 78, 36
+  orig: 78, 36
+  offset: 0, 0
+  index: -1
+can
+  rotate: true
+  xy: 294, 146
+  size: 94, 121
+  orig: 94, 121
+  offset: 0, 0
+  index: -1
+canhtay_p
+  rotate: false
+  xy: 408, 261
+  size: 84, 99
+  orig: 84, 99
+  offset: 0, 0
+  index: -1
+chan_p
+  rotate: true
+  xy: 276, 4
+  size: 69, 85
+  orig: 69, 85
+  offset: 0, 0
+  index: -1
+chan_t
+  rotate: true
+  xy: 363, 4
+  size: 69, 85
+  orig: 69, 85
+  offset: 0, 0
+  index: -1
+cuoi
+  rotate: true
+  xy: 509, 10
+  size: 66, 33
+  orig: 66, 33
+  offset: 0, 0
+  index: -1
+dau
+  rotate: true
+  xy: 2, 242
+  size: 268, 263
+  orig: 268, 263
+  offset: 0, 0
+  index: -1
+kinh
+  rotate: false
+  xy: 2, 122
+  size: 290, 118
+  orig: 290, 118
+  offset: 0, 0
+  index: -1
+kinh2
+  rotate: true
+  xy: 2, 3
+  size: 38, 112
+  orig: 38, 112
+  offset: 0, 0
+  index: -1
+longmay_p
+  rotate: true
+  xy: 417, 153
+  size: 106, 73
+  orig: 106, 73
+  offset: 0, 0
+  index: -1
+longmay_t
+  rotate: false
+  xy: 464, 78
+  size: 106, 73
+  orig: 106, 73
+  offset: 0, 0
+  index: -1
+rau
+  rotate: false
+  xy: 2, 43
+  size: 237, 77
+  orig: 237, 77
+  offset: 0, 0
+  index: -1
+rau2
+  rotate: true
+  xy: 267, 362
+  size: 148, 144
+  orig: 148, 144
+  offset: 0, 0
+  index: -1
+tay_t
+  rotate: false
+  xy: 450, 2
+  size: 57, 71
+  orig: 57, 71
+  offset: 0, 0
+  index: -1
+than
+  rotate: true
+  xy: 492, 167
+  size: 92, 80
+  orig: 92, 80
+  offset: 0, 0
+  index: -1

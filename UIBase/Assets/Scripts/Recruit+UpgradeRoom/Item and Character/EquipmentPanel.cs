@@ -6,7 +6,7 @@ public class EquipmentPanel : MonoBehaviour
     public static EquipmentPanel instance;
 
     public Character character;
-
+    //public SkeletonGraphic
     public ItemSlotList itemSlotList;
     public EquipmentSlotList equipSlotList;
     // Use this for initialization
@@ -24,12 +24,14 @@ public class EquipmentPanel : MonoBehaviour
         itemSlotList.SetupData();
         equipSlotList.SetupData();
         itemSlotList.DisplayEquipment();
+        Debug.Log("run");
     }
     private void OnDisable()
     {
         itemSlotList.RemoveEvent();
         itemSlotList.OnRightClickEvent -= ShowTooltip;
         itemSlotList.UnactiveMarked();
+        Debug.Log("run 2");
     }
     private void OnValidate()
     {

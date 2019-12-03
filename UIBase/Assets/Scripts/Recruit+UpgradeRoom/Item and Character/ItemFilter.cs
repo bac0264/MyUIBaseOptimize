@@ -22,7 +22,7 @@ public class ItemFilter : MonoBehaviour
     }
     public void SetBtn(string type, int index)
     {
-        if (RoomManager.instance != null) RoomManager.instance.itemSlotList.Filter(type.ToString());
+        if (RecruitAndUpgradeButton.instance != null) RecruitAndUpgradeButton.instance.itemSlotList.Filter(type.ToString());
         for (int i = 0; i < btns.Length; i++)
         {
             Image image = btns[i].GetComponent<Image>();
