@@ -1,16 +1,12 @@
 fileFormatVersion: 2
-guid: af9b0162d8ca062469348624b0f07d4f
+guid: e6256690b0a02f9438936f7aec06330b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ui_forging_upgrade_exp_0
-    21300002: ui_forging_upgrade_exp_1
-    21300004: ui_forging_upgrade_exp_2
-    21300006: ui_forging_upgrade_exp_3
-    21300008: ui_forging_upgrade_exp_4
-    21300010: ui_forging_upgrade_exp_5
-    21300012: ui_forging_upgrade_exp_6
-    21300014: ui_forging_upgrade_exp_7
-    21300016: ui_forging_upgrade_exp_8
+    21300000: equiment_o_exp_0
+    21300002: equiment_o_exp_1
+    21300004: equiment_o_exp_2
+    21300006: equiment_o_exp_3
+    21300008: equiment_o_exp_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -80,48 +76,48 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
-    textureFormat: 56
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
-    textureFormat: 29
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_0
+      name: equiment_o_exp_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 487
-        width: 1006
-        height: 1546
+        x: 43
+        y: 55
+        width: 166
+        height: 169
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,19 +125,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec344f7f8d0c77849959ef5a3c6e159a
+      spriteID: 4e360d970c41add428c1869984c72952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_1
+      name: equiment_o_exp_1
       rect:
         serializedVersion: 2
-        x: 1074
-        y: 1580
-        width: 558
-        height: 436
+        x: 252
+        y: 55
+        width: 168
+        height: 166
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,19 +145,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b697cb120677fbd4bb38491d38f4715b
+      spriteID: eff000c43320bfb4c8140c27a460f0fb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_2
+      name: equiment_o_exp_2
       rect:
         serializedVersion: 2
-        x: 1182
-        y: 1444
-        width: 103
-        height: 68
+        x: 444
+        y: 52
+        width: 168
+        height: 172
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,19 +165,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6f2618540de3114c96e249fbd127a6e
+      spriteID: c600ad25650faad4590e69928812e83f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_3
+      name: equiment_o_exp_3
       rect:
         serializedVersion: 2
-        x: 1161
-        y: 1261
-        width: 288
-        height: 94
+        x: 639
+        y: 52
+        width: 166
+        height: 172
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dc5cf8e07164724b9dad1b019e64b56
+      spriteID: e5b69120a9b6b4a489657d91c2e964e3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_4
+      name: equiment_o_exp_4
       rect:
         serializedVersion: 2
-        x: 1492
-        y: 1281
-        width: 54
-        height: 56
+        x: 847
+        y: 52
+        width: 166
+        height: 172
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,47 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21c7f9bc6dbd7bf458c5e57ca2ae692c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_forging_upgrade_exp_5
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 308
-        width: 941
-        height: 141
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b573fd6eb8938a34e9e8419020cfc783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_forging_upgrade_exp_6
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 47
-        width: 956
-        height: 206
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55fc50accba064d4a99935385ce6af57
+      spriteID: e4fd04a750ba539468af465f9df6fbf7
       vertices: []
       indices: 
       edges: []
@@ -257,7 +213,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 980cdb45f62d752419ac45a3b920c08d
+    spriteID: 9905f4cbf011943488c2fdb3ac3963d2
     vertices: []
     indices: 
     edges: []

@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: af9b0162d8ca062469348624b0f07d4f
+guid: 6ddca289b0c43034eb787304b11dbd2c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ui_forging_upgrade_exp_0
-    21300002: ui_forging_upgrade_exp_1
-    21300004: ui_forging_upgrade_exp_2
-    21300006: ui_forging_upgrade_exp_3
-    21300008: ui_forging_upgrade_exp_4
-    21300010: ui_forging_upgrade_exp_5
-    21300012: ui_forging_upgrade_exp_6
-    21300014: ui_forging_upgrade_exp_7
-    21300016: ui_forging_upgrade_exp_8
+    21300000: ui_talen_exp_0
+    21300002: ui_talen_exp_1
+    21300004: ui_talen_exp_2
+    21300006: ui_talen_exp_3
+    21300008: ui_talen_exp_4
+    21300010: ui_talen_exp_5
+    21300012: ui_talen_exp_6
+    21300014: ui_talen_exp_7
+    21300016: ui_talen_exp_8
+    21300018: ui_talen_exp_9
+    21300020: ui_talen_exp_10
+    21300022: ui_talen_exp_11
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -80,176 +83,196 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
-    textureFormat: 56
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
-    textureFormat: 29
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_0
+      name: ui_talen_exp_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 487
-        width: 1006
-        height: 1546
+        x: 15
+        y: 79
+        width: 1008
+        height: 1541
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec344f7f8d0c77849959ef5a3c6e159a
+      spriteID: 78724dce43ba6b648b689a3cc8b71221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_1
+      name: ui_talen_exp_1
       rect:
         serializedVersion: 2
-        x: 1074
-        y: 1580
-        width: 558
-        height: 436
+        x: 1499
+        y: 1446
+        width: 392
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b697cb120677fbd4bb38491d38f4715b
+      spriteID: b325b443d67e4c141b6c7bc7492fd96e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_2
+      name: ui_talen_exp_2
       rect:
         serializedVersion: 2
-        x: 1182
-        y: 1444
-        width: 103
-        height: 68
+        x: 1552
+        y: 1301
+        width: 71
+        height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6f2618540de3114c96e249fbd127a6e
+      spriteID: bb673cc427ce5c745958222c9528f724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_3
+      name: ui_talen_exp_3
       rect:
         serializedVersion: 2
-        x: 1161
-        y: 1261
-        width: 288
-        height: 94
+        x: 1069
+        y: 371
+        width: 851
+        height: 863
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dc5cf8e07164724b9dad1b019e64b56
+      spriteID: 39dce8ac494636e4f92a24bb3dfc50ab
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_4
+      name: ui_talen_exp_4
       rect:
         serializedVersion: 2
-        x: 1492
-        y: 1281
-        width: 54
-        height: 56
+        x: 1078
+        y: 806
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21c7f9bc6dbd7bf458c5e57ca2ae692c
+      spriteID: 6b0ece20ccdac9642adbc176d053cf0c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_5
+      name: ui_talen_exp_5
       rect:
         serializedVersion: 2
-        x: 70
-        y: 308
-        width: 941
-        height: 141
+        x: 1907
+        y: 789
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b573fd6eb8938a34e9e8419020cfc783
+      spriteID: f37a8876939601845a73eba4692f087c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_forging_upgrade_exp_6
+      name: ui_talen_exp_6
       rect:
         serializedVersion: 2
-        x: 52
-        y: 47
-        width: 956
-        height: 206
+        x: 1912
+        y: 793
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55fc50accba064d4a99935385ce6af57
+      spriteID: 8e03140295c897f49a4b4f6889e734e8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_talen_exp_7
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 786
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc80b2ef282bd7d41a2882c8eed9810d
       vertices: []
       indices: 
       edges: []
@@ -257,7 +280,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 980cdb45f62d752419ac45a3b920c08d
+    spriteID: 5e8b84b636e8cce4aa56da2072ad03b8
     vertices: []
     indices: 
     edges: []

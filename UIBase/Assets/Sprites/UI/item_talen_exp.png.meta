@@ -1,26 +1,17 @@
 fileFormatVersion: 2
-guid: 12109ef7299934c4ab87fea9bab7ca3a
+guid: a273d1e14a32d45469f271248fd83c7a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ui_equiment_exp_0
-    21300002: ui_equiment_exp_1
-    21300004: ui_equiment_exp_2
-    21300006: ui_equiment_exp_3
-    21300008: ui_equiment_exp_4
-    21300010: ui_equiment_exp_5
-    21300012: ui_equiment_exp_6
-    21300014: ui_equiment_exp_7
-    21300016: ui_equiment_exp_8
-    21300018: ui_equiment_exp_9
-    21300020: ui_equiment_exp_10
-    21300022: ui_equiment_exp_11
-    21300024: ui_equiment_exp_12
-    21300026: ui_equiment_exp_13
-    21300028: ui_equiment_exp_14
-    21300030: ui_equiment_exp_15
-    21300032: ui_equiment_exp_16
-    21300034: ui_equiment_exp_17
-    21300036: ui_equiment_exp_18
+    21300000: item_talen_exp_1
+    21300002: item_talen_exp_3
+    21300004: item_talen_exp_6
+    21300006: item_talen_exp_7
+    21300008: item_talen_exp_10
+    21300010: item_talen_exp_11
+    21300012: item_talen_exp_13
+    21300014: item_talen_exp_16
+    21300016: item_talen_exp_17
+    21300018: item_talen_exp_18
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -90,48 +81,68 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
-    textureFormat: 56
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 4096
-    resizeAlgorithm: 1
-    textureFormat: 29
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_equiment_exp_0
+      name: item_talen_exp_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 279
-        width: 1005
-        height: 1541
+        x: 33
+        y: 341
+        width: 120
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 654656f2bf447964a80ede122af8f4de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_talen_exp_3
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 351
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,19 +150,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 318b1a0e93c47574c85eb0615bd2c69b
+      spriteID: d065db1d34fd275489e7adb8be32ee4e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_equiment_exp_1
+      name: item_talen_exp_6
       rect:
         serializedVersion: 2
-        x: 1124
-        y: 1617
-        width: 158
-        height: 149
+        x: 672
+        y: 347
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,19 +170,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f78ef50047421c4cb43f99f19a64e03
+      spriteID: aec9926ee3059574d98bea4de4500805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_equiment_exp_2
+      name: item_talen_exp_7
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 1636
-        width: 128
-        height: 110
+        x: 852
+        y: 364
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,19 +190,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 983107b0a9679a548b0c5c92d971ca7c
+      spriteID: e6c66394432436742828607999a1d1b1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_equiment_exp_3
+      name: item_talen_exp_10
       rect:
         serializedVersion: 2
-        x: 1147
-        y: 1419
-        width: 111
-        height: 114
+        x: 46
+        y: 403
+        width: 18
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,19 +210,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77bce74bc9ca415418026887e1c19de9
+      spriteID: 3fbb1e52bf2eba848a3e91606270bbf2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_equiment_exp_4
+      name: item_talen_exp_11
       rect:
         serializedVersion: 2
-        x: 1383
-        y: 1415
-        width: 140
-        height: 122
+        x: 251
+        y: 340
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,19 +230,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eabe899a7570c204fbcf4f711d6ceed6
+      spriteID: 3962c64c1bb2dd343926d21c9970c1c9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_equiment_exp_5
+      name: item_talen_exp_13
       rect:
         serializedVersion: 2
-        x: 1163
-        y: 1195
-        width: 95
-        height: 121
+        x: 46
+        y: 176
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea8b6dad13720344bbe17b010cd0e025
+      spriteID: bf5fb45e251652f4abac2d5a31c69695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_equiment_exp_6
+      name: item_talen_exp_16
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 1239
-        width: 160
-        height: 80
+        x: 480
+        y: 169
+        width: 124
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,159 +270,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c526874e4a0c2d944ac7ae1831444bc4
+      spriteID: b0fdded0d6b671b4ea4765d62d2d14dd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_equiment_exp_7
+      name: item_talen_exp_17
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 1056
-        width: 156
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69c93fdb9f84f714da5fd04a9dc8db22
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_equiment_exp_8
-      rect:
-        serializedVersion: 2
-        x: 1127
-        y: 800
-        width: 165
-        height: 168
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b48e0b269c72f34db607e3f3ce393d2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_equiment_exp_9
-      rect:
-        serializedVersion: 2
-        x: 1167
-        y: 650
-        width: 301
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30923f44c55d4f2429a8d8897f06128f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_equiment_exp_10
-      rect:
-        serializedVersion: 2
-        x: 1123
-        y: 479
-        width: 383
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c435f16314072ee4ab943a4697556776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_equiment_exp_11
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 195
-        width: 278
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b69ad0d6137f4643ae5510587d94455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_equiment_exp_12
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 188
-        width: 273
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b10c701a1c2f06c4abcb50c6f971cc5a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_equiment_exp_13
-      rect:
-        serializedVersion: 2
-        x: 739
-        y: 194
-        width: 259
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bef0c2ba12af5224cad7f67d1680420b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_equiment_exp_14
-      rect:
-        serializedVersion: 2
-        x: 68
+        x: 706
         y: 51
-        width: 953
-        height: 111
+        width: 312
+        height: 242
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,7 +290,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5ad77322d94ab14eaee342ff3c51258
+      spriteID: bc9d96260696b8e4ea7402a120ff0cac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_talen_exp_18
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 173
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56dc6253d3e44344b48d49d18ed4cc5
       vertices: []
       indices: 
       edges: []
@@ -427,7 +318,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1f3fb9e33b272dc4c83af6bfb3339c09
+    spriteID: c4b4b91bd6ac3334098055a14d93dbe1
     vertices: []
     indices: 
     edges: []
