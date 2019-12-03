@@ -10,6 +10,7 @@ public class KeySave
     public const string ITEM_LIST = "ITEM_LIST";
     public const string IS_GAME_FOR_THE_FIST = "ISGAMEFORTHEFIRST";
     public const string TALENT_LIST = "TALENT_LIST";
+    public const string HERO_LIST = "HERO_LIST";
     public const string ITEM_DISPLAY = "ITEM_DISPLAY";
     public const string RECRUIT_OR_FORGING = " RECRUIT_OR_FORGING";
     public const int MAX_LEVELUPGRADE_ITEM = 3;

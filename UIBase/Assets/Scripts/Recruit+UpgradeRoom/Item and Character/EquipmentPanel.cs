@@ -5,7 +5,8 @@ public class EquipmentPanel : MonoBehaviour
 {
     public static EquipmentPanel instance;
 
-    public Character character;
+    public CharacterStatManager CharacterStatManager;
+    public CharacterStatUI characterUI;
     //public SkeletonGraphic
     public ItemSlotList itemSlotList;
     public EquipmentSlotList equipSlotList;
@@ -24,20 +25,20 @@ public class EquipmentPanel : MonoBehaviour
         itemSlotList.SetupData();
         equipSlotList.SetupData();
         itemSlotList.DisplayEquipment();
-        Debug.Log("run");
+        characterUI.UpdateCharacterStat(CharacterStatManager);
     }
     private void OnDisable()
     {
         itemSlotList.RemoveEvent();
         itemSlotList.OnRightClickEvent -= ShowTooltip;
         itemSlotList.UnactiveMarked();
-        Debug.Log("run 2");
     }
     private void OnValidate()
     {
-        if (character == null) character = FindObjectOfType<Character>();
+        if (CharacterStatManager == null) CharacterStatManager = FindObjectOfType<CharacterStatManager>();
         if (itemSlotList == null) itemSlotList = GetComponentInChildren<ItemSlotList>();
         if (equipSlotList == null) equipSlotList = GetComponentInChildren<EquipmentSlotList>();
+        if (characterUI == null) characterUI = GetComponentInChildren<CharacterStatUI>();
     }
     public void ShowTooltip(Item item)
     {
@@ -56,8 +57,8 @@ public class EquipmentPanel : MonoBehaviour
             if (equipSlotList.AddToEquip(item))
             {
                 itemSlotList.RemoveToEquip(item);
-                item.Equip(this);
-                if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(this);
+                item.Equip(CharacterStatManager);
+                characterUI.UpdateCharacterStat(CharacterStatManager);
             }
         }
 
@@ -69,11 +70,8 @@ public class EquipmentPanel : MonoBehaviour
             if (itemSlotList.AddToUnequip(item))
             {
                 equipSlotList.RemoveToUnequip(item);
-                item.Unequip(this);
-                Debug.Log("item.id: " + item.id + ", " + item.type);
-
-                Debug.Log("unequip");
-                if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(this);
+                item.Unequip(CharacterStatManager);
+                characterUI.UpdateCharacterStat(CharacterStatManager);
             }
         }
     }

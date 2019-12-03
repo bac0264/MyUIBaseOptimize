@@ -36,7 +36,7 @@ public class Talent
     {
         if (level > 0) this.level += level;
     }
-    public void AddTalent(Character c)
+    public void AddTalent(CharacterStatManager c)
     {
         mod1 = new StatModifier(HP_AllHero * (level + 1), StatModType.Flat);
         mod2 = new StatModifier(ATK_AllHero * (level + 1), StatModType.Flat);
@@ -48,7 +48,7 @@ public class Talent
         c.HP.AddModifier(mod1);
         c.Dame.AddModifier(mod2);
     }
-    public void RemoveTalent(Character c)
+    public void RemoveTalent(CharacterStatManager c)
     {
         c.HP.RemoveModifier(mod1);
         c.Dame.RemoveModifier(mod2);

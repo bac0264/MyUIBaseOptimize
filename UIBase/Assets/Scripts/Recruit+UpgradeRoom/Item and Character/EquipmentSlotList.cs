@@ -20,10 +20,10 @@ public class EquipmentSlotList : MonoBehaviour
     {
         if (itemManager == null) return;
         List<Item> item = itemManager.EquipmentItemList();
-        EquipmentPanel character = EquipmentPanel.instance;
-        if (character != null)
+        CharacterStatManager CharacterStatManager = CharacterStatManager.instance;
+        if (CharacterStatManager != null)
         {
-            character.character.ResetEquipDataStat();
+            CharacterStatManager.ResetEquipDataStat();
         }
         bool check = false;
         for (int i = 0; i < equipSlots.Length; i++)
@@ -33,9 +33,9 @@ public class EquipmentSlotList : MonoBehaviour
                 if ((float)equipSlots[i].type.type == item[j].type)
                 {
                     equipSlots[i].ITEM = item[j];
-                    if (character != null)
+                    if (CharacterStatManager != null)
                     {
-                        equipSlots[i].ITEM.Equip(character);
+                        equipSlots[i].ITEM.Equip(CharacterStatManager);
                     }
                     check = true;
                     break;
@@ -50,7 +50,6 @@ public class EquipmentSlotList : MonoBehaviour
                 equipSlots[i].ITEM = null;
             }
         }
-        if (CharacterStatUI.instance != null) CharacterStatUI.instance.UpdateCharacterStat(character);
     }
     public void SetupEvent()
     {

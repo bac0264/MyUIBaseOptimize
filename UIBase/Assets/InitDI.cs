@@ -10,6 +10,7 @@ public class InitDI : MonoBehaviour
         DIContainer.SetModule<IResourceManager, ResourceManager>();
         DIContainer.SetModule<IItemManager, ItemManager>();
         DIContainer.SetModule<ITalentManager, TalentManager>();
+        DIContainer.SetModule<ICharacterManager, CharacterManager>();
         IItemManager itemManager = DIContainer.GetModule<IItemManager>();
         if (PlayerPrefs.GetInt("1", 0) == 0)
         {

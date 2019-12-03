@@ -102,19 +102,19 @@ public class Item
             if (levelUpgrade > KeySave.MAX_LEVELUPGRADE_ITEM) levelUpgrade = KeySave.MAX_LEVELUPGRADE_ITEM;
         }
     }
-    public void Equip(EquipmentPanel c)
+    public void Equip(CharacterStatManager c)
     {
         mod1 = new StatModifier(dame, StatModType.Flat);
         mod2 = new StatModifier(hp, StatModType.Flat);
         mod3 = new StatModifier(power, StatModType.Flat);
-        c.character.Dame.AddModifier(mod1);
-        c.character.HP.AddModifier(mod2);
-        c.character.Power.AddModifier(mod3);
+        c.Dame.AddModifier(mod1);
+        c.HP.AddModifier(mod2);
+        c.Power.AddModifier(mod3);
     }
-    public void Unequip(EquipmentPanel c)
+    public void Unequip(CharacterStatManager c)
     {
-        c.character.Dame.RemoveModifier(mod1);
-        c.character.HP.RemoveModifier(mod2);
-        c.character.Power.RemoveModifier(mod3);
+        c.Dame.RemoveModifier(mod1);
+        c.HP.RemoveModifier(mod2);
+        c.Power.RemoveModifier(mod3);
     }
 }

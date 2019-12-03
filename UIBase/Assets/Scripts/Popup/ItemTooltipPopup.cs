@@ -76,10 +76,10 @@ public class ItemTooltipPopup : BasePopup
 
     public void Equip()
     {
-        EquipmentPanel character = EquipmentPanel.instance;
-        if (character != null && item != null && item.value > 0)
+        EquipmentPanel CharacterStatManager = EquipmentPanel.instance;
+        if (CharacterStatManager != null && item != null && item.value > 0)
         {
-            character.Equip(item);
+            CharacterStatManager.Equip(item);
         }
         HideItemTooltip();
     }

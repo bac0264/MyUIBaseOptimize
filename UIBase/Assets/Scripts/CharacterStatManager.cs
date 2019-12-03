@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Character : MonoBehaviour
+public class CharacterStatManager : MonoBehaviour
 {
-    public static Character instance;
+    public static CharacterStatManager instance;
     public void Awake()
     {
         if (instance == null) instance = this;

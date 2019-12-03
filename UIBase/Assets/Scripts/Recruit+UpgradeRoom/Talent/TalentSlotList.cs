@@ -71,11 +71,11 @@ public class TalentSlotList : MonoBehaviour
     public void AddLevelRandom()
     {
         TalentSlot talentSlot = GetRandomTalentSlot();
-        if (Character.instance != null)
-            talentSlot.TALENT.RemoveTalent(Character.instance);
+        if (CharacterStatManager.instance != null)
+            talentSlot.TALENT.RemoveTalent(CharacterStatManager.instance);
         talentSlot.TALENT.AddLevel(1);
-        if (Character.instance != null)
-            talentSlot.TALENT.AddTalent(Character.instance);
+        if (CharacterStatManager.instance != null)
+            talentSlot.TALENT.AddTalent(CharacterStatManager.instance);
         talentSlot.TALENT = talentSlot.TALENT;
         talentManager.SaveTalentIntoPlayerPrefX();
     }
