@@ -19,6 +19,23 @@ public class CharacterPanel : MonoBehaviour
 
     public void ShowStat(Character character)
     {
-
+        characterUI.UpdateHeroUI(character);
+    }
+    public void Upgrade()
+    {
+        CharacterSlot characterSlot = characterSlotList.getCurrentSlot();
+        if (characterSlot != null)
+        {
+            if (CharacterInfomationUI.instance != null)
+            {
+                if (characterSlot.CHARACTER.AddLevel(1))
+                {
+                    CharacterInfomationUI.instance.UpdateHeroUI(characterSlot.CHARACTER);
+                    characterSlotList.SetupData();
+                    ICharacterManager ICharacter = DIContainer.GetModule<ICharacterManager>();
+                    ICharacter.SaveCharacterIntoPlayerPrefX();
+                }
+            }
+        }
     }
 }

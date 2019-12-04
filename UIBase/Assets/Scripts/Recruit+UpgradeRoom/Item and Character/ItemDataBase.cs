@@ -30,4 +30,11 @@ public class ItemDataBase : MonoBehaviour
             return sprite;
         return null;
     }
+    public Sprite GetHeroBackground(float Level)
+    {
+        Sprite sprite = backgroundList[(int)Level];
+        if (sprite != null)
+            return sprite;
+        return null;
+    }
 }

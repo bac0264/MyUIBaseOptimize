@@ -52,7 +52,6 @@ public class CharacterStat
         if (statModifiers.Remove(mod))
         {
             isDirty = true;
-            Debug.Log("run");
             return true;
         }
         return false;

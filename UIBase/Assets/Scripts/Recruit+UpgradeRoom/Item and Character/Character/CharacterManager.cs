@@ -19,7 +19,7 @@ public class CharacterManager : ICharacterManager
     {
         characterList.Clear();
         List<string> data = new List<string>();
-        Character character = new Character(0, 0, "Bac Dzai", 0);
+        Character character = new Character(0, 0, "Bac Dzai", 0, true);
         string json = JsonUtility.ToJson(character);
         characterList.Add(character.id.ToString(),character);
         data.Add(json);
@@ -58,6 +58,14 @@ public class CharacterManager : ICharacterManager
         if (characterList.ContainsKey(id.ToString()))
             return characterList[id.ToString()];
         return null;
+    }
+    public Character GetCurrentCharacter()
+    {
+        foreach (KeyValuePair<string, Character> ele1 in characterList)
+        {
+            if (ele1.Value.isPick) return ele1.Value;
+        }
+        return GetCharacter(0);
     }
     public List<Character> GetAllCharacter()
     {
