@@ -328,7 +328,12 @@ namespace Spine.Unity {
 			}
 			#endif
 		}
-
+        public void SetSkinCharacter(string nameSkin)
+        {
+            initialSkinName = nameSkin;
+            if (!string.IsNullOrEmpty(initialSkinName) && !string.Equals(initialSkinName, "default", System.StringComparison.Ordinal))
+                skeleton.SetSkin(initialSkinName);
+        }
 		/// <summary>
 		/// Generates a new UnityEngine.Mesh from the internal Skeleton.</summary>
 		public virtual void LateUpdate () {

@@ -14,6 +14,7 @@ public class ItemDataBase : MonoBehaviour
         itemIconList = new Dictionary<string, Sprite>();
         for (int i = 0; i < _itemIconList.Length; i++)
         {
+            Debug.Log("item name: " + _itemIconList[i].name + ", sprite: " + _itemIconList[i]);
             itemIconList.Add(_itemIconList[i].name, _itemIconList[i]);
         }
     }

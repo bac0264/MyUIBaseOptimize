@@ -86,7 +86,6 @@ public class EquipmentSlotList : MonoBehaviour
     public bool RemoveToUnequip(Item item)
     {
         ItemSlot _itemSlot = RemoveItemSlot(item);
-        Debug.Log(_itemSlot);
         if (_itemSlot == null) return false;
         Item _item = new Item(0);
         _itemSlot.ITEM = _item;

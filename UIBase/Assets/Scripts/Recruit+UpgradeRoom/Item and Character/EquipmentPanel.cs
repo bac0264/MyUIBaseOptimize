@@ -7,6 +7,7 @@ public class EquipmentPanel : MonoBehaviour
 
     public CharacterStatManager CharacterStatManager;
     public CharacterStatUI characterUI;
+    public SkeletonCharacter skeletonCharacter;
     //public SkeletonGraphic
     public ItemSlotList itemSlotList;
     public EquipmentSlotList equipSlotList;
@@ -35,6 +36,7 @@ public class EquipmentPanel : MonoBehaviour
     }
     private void OnValidate()
     {
+        if(skeletonCharacter == null) skeletonCharacter = GetComponentInChildren<SkeletonCharacter>();
         if (CharacterStatManager == null) CharacterStatManager = FindObjectOfType<CharacterStatManager>();
         if (itemSlotList == null) itemSlotList = GetComponentInChildren<ItemSlotList>();
         if (equipSlotList == null) equipSlotList = GetComponentInChildren<EquipmentSlotList>();
@@ -59,6 +61,7 @@ public class EquipmentPanel : MonoBehaviour
                 itemSlotList.RemoveToEquip(item);
                 item.Equip(CharacterStatManager);
                 characterUI.UpdateCharacterStat(CharacterStatManager);
+                skeletonCharacter.RefreshUI();
             }
         }
 
@@ -72,6 +75,7 @@ public class EquipmentPanel : MonoBehaviour
                 equipSlotList.RemoveToUnequip(item);
                 item.Unequip(CharacterStatManager);
                 characterUI.UpdateCharacterStat(CharacterStatManager);
+                skeletonCharacter.RefreshUI();
             }
         }
     }

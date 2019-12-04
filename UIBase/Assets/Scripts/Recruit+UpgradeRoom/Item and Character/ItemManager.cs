@@ -125,4 +125,15 @@ public class ItemManager : IItemManager
         }
         return equipmentItemList;
     }
+    public Item GetEquipmentWeapon()
+    {
+        foreach (KeyValuePair<string, Item> ele1 in itemList)
+        {
+            if (ele1.Value.value > 0)
+            {
+                if (ele1.Value.isEquip && ele1.Value.type == (float)TypeOfItem.Type.Weapon) return ele1.Value;
+            }
+        }
+        return null;
+    }
 }

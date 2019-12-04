@@ -110,6 +110,17 @@ namespace Spine.Unity {
 					Initialize(true);
 			}
 		}
+        public void SetCharacterSkin(string name)
+        {
+            var skin = skeleton.data.FindSkin(name);
+            if (skin != null)
+            {
+                if (skin == skeleton.data.defaultSkin)
+                    skeleton.SetSkin((Skin)null);
+                else
+                    skeleton.SetSkin(skin);
+            }
+        }
 
 		protected override void Reset () {
 
@@ -223,7 +234,13 @@ namespace Spine.Unity {
 
 		#region API
 		protected Skeleton skeleton;
-		public Skeleton Skeleton { get { return skeleton; } set { skeleton = value; } }
+        public Skeleton SKELETON {
+            get
+            {
+                return skeleton;
+            }
+        }
+        public Skeleton Skeleton { get { return skeleton; } set { skeleton = value; } }
 		public SkeletonData SkeletonData { get { return skeleton == null ? null : skeleton.data; } }
 		public bool IsValid { get { return skeleton != null; } }
 
@@ -243,6 +260,10 @@ namespace Spine.Unity {
 		public event UpdateBonesDelegate UpdateWorld;
 		public event UpdateBonesDelegate UpdateComplete;
 
+        public Spine.AnimationState STATE
+        {
+            get { return state; }
+        }
 		/// <summary> Occurs after the vertex data populated every frame, before the vertices are pushed into the mesh.</summary>
 		public event Spine.Unity.MeshGeneratorDelegate OnPostProcessVertices;
 
@@ -284,17 +305,46 @@ namespace Spine.Unity {
 				var animationObject = skeletonDataAsset.GetSkeletonData(false).FindAnimation(startingAnimation);
 				if (animationObject != null) {
 					state.SetAnimation(0, animationObject, startingLoop);
-					#if UNITY_EDITOR
-					if (!Application.isPlaying)
-						Update(0f);
-					#endif
-					if (freeze)
-						Update(0f);
+					//#if UNITY_EDITOR
+					//if (!Application.isPlaying)
+					//	Update(0f);
+					//#endif
+					//if (freeze)
+					//	Update(0f);
 				}
 			}
 		}
+        public void SetDefaultSkin()
+        {
+            skeleton.SetSkin((Skin)null);
+        }
+        public void SetSkinAndAnimationCharacter(string skinName, string animationName)
+        {
+            initialSkinName = skinName;
+            startingAnimation = animationName;
+            if (!string.IsNullOrEmpty(initialSkinName))
+            {
+                var skin = skeleton.data.FindSkin(initialSkinName);
+                if (skin != null)
+                {
+                    if (skin == skeleton.data.defaultSkin)
+                        skeleton.SetSkin((Skin)null);
+                    else
+                        skeleton.SetSkin(skin);
+                }
 
-		public void UpdateMesh () {
+            }
+            if (!string.IsNullOrEmpty(startingAnimation))
+            {
+                var animationObject = skeletonDataAsset.GetSkeletonData(false).FindAnimation(startingAnimation);
+                if (animationObject != null)
+                {
+                    state.ClearTracks();
+                    state.SetAnimation(0, animationObject, startingLoop);
+                }
+            }
+        }
+        public void UpdateMesh () {
 			if (!this.IsValid) return;
 
 			skeleton.SetColor(this.color);

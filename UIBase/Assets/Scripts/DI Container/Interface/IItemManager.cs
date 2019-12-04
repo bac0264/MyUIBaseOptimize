@@ -12,6 +12,8 @@ public interface IItemManager
     /// <param name="type"></param>
     /// <param name="id"></param>
     /// <returns></returns>
+    /// 
+    Item GetEquipmentWeapon();
     Item GetItem(string type, string id, string itemIndex);
     int GetMax(string type, string id);
     /// <summary>
