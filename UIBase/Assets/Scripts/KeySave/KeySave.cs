@@ -13,7 +13,7 @@ public class KeySave
     public const string HERO_LIST = "HERO_LIST";
     public const string ITEM_DISPLAY = "ITEM_DISPLAY";
     public const string RECRUIT_OR_FORGING = " RECRUIT_OR_FORGING";
-    public const int MAX_LEVELUPGRADE_ITEM = 3;
+    public const int MAX_LEVELUPGRADE_ITEM = 1;
     public const int ATRIBUTE_HERO_UPGRADE = 20;
     public const int MAX_LEVEL_HERO = 79;
 }

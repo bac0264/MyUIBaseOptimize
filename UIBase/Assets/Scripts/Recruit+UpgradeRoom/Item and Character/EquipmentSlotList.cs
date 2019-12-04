@@ -76,7 +76,7 @@ public class EquipmentSlotList : MonoBehaviour
         {
             if (EquipmentPanel.instance != null)
             {
-                EquipmentPanel.instance.Unequip(_itemSlot.ITEM);
+                EquipmentPanel.instance.UnequipNotRefreshUI(_itemSlot.ITEM);
                 _itemSlot.ITEM = item;
                 return true;
             }

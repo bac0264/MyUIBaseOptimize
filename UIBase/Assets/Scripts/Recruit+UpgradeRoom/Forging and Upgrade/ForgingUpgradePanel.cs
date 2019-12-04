@@ -56,7 +56,6 @@ public class ForgingUpgradePanel : MonoBehaviour
     public void UpgradeItem()
     {       
         int upgrade = forgingUpgradeSlotList.Upgrade();
-        Debug.Log(upgrade);
         if (upgrade == 2 || upgrade == 1 || upgrade == 3) itemSlotList.SetupData();
     }
 }

@@ -6,15 +6,21 @@ public class CharacterPanel : MonoBehaviour
     public CharacterStatManager CharacterStatManager;
     public CharacterInfomationUI characterUI;
     public CharacterSlotList characterSlotList;
+    public SkeletonCharacter skeleton;
     private void OnValidate()
     {
         if (CharacterStatManager == null) CharacterStatManager = FindObjectOfType<CharacterStatManager>();
         if (characterUI == null) characterUI = GetComponentInChildren<CharacterInfomationUI>();
         if (characterSlotList == null) characterSlotList = GetComponentInChildren<CharacterSlotList>();
+        if (skeleton == null) skeleton = GetComponentInChildren<SkeletonCharacter>();
     }
     public void Awake()
     {
         characterSlotList.OnRightClickEvent += ShowStat;
+    }
+    private void OnEnable()
+    {
+        skeleton.RefreshUI();
     }
 
     public void ShowStat(Character character)

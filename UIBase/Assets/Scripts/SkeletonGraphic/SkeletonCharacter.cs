@@ -6,7 +6,6 @@ public class SkeletonCharacter : MonoBehaviour
 {
     public SkeletonMecanim character;
     public Animator animator;
-    public SkeletonDataAsset asset;
     private void Start()
     {
         RefreshUI();
@@ -18,20 +17,24 @@ public class SkeletonCharacter : MonoBehaviour
     }
     public void RefreshUI()
     {
-        Item item = DIContainer.GetModule<IItemManager>().GetEquipmentWeapon();
-        //character.SKELETON.();
-        string skin = "default";
-        Debug.Log(item);
-        if (item != null)
+        if (character != null && character.skeleton != null)
         {
-            skin = ((WeaponType.Type)item.id).ToString() + (item.levelUpgrade + 1).ToString();
-            animator.Play(((WeaponType.Type)item.id).ToString());
+            Item item = DIContainer.GetModule<IItemManager>().GetEquipmentWeapon();
+            //character.SKELETON.();
+            if (item != null)
+            {
+                string skin = ((WeaponType.Type)item.id).ToString() + (item.levelUpgrade + 1).ToString();
+                animator.Play(((WeaponType.Type)item.id).ToString());
+                character.skeleton.SetSkin(skin);
+                character.skeleton.SetSlotsToSetupPose();
+            }
+            else
+            {
+                string skin = "default";
+                animator.Play("animation");
+                character.skeleton.SetSkin(skin);
+                character.skeleton.SetSlotsToSetupPose();
+            }
         }
-        else
-        {
-            animator.SetTrigger("default");
-        }
-        character.skeleton.SetSkin(skin);
-        character.skeleton.SetSlotsToSetupPose();
     }
 }

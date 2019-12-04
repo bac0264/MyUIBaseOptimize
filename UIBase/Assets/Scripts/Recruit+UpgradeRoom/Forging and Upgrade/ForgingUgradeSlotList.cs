@@ -202,10 +202,11 @@ public class ForgingUgradeSlotList : MonoBehaviour
     }
     public int Upgrade_Type_2(ForgingUgradeSlot fuSlot, List<ForgingUgradeSlot> fuSlots)
     {
-        int type = UnityEngine.Random.Range((int)TypeOfItem.Type.Weapon, (int)TypeOfItem.Type.Other);
+        int type = 0;//UnityEngine.Random.Range((int)TypeOfItem.Type.Weapon, (int)TypeOfItem.Type.Other);
         int levelUpgrade = (int)fuSlot.ITEM.levelUpgrade + 1;
         if (levelUpgrade > KeySave.MAX_LEVELUPGRADE_ITEM) levelUpgrade = KeySave.MAX_LEVELUPGRADE_ITEM;
-        Item upgradeItem = new Item(0, 0, type, 1, 0, levelUpgrade, false);
+        int id = UnityEngine.Random.Range((int)WeaponType.Type.knife, (int)WeaponType.Type.doublePisol + 1);
+        Item upgradeItem = new Item(0, id, type, 1, 0, levelUpgrade, false);
         itemManager.AddItem(upgradeItem);
         foreach (ForgingUgradeSlot itemSlot in fuSlots)
         {
@@ -216,7 +217,10 @@ public class ForgingUgradeSlotList : MonoBehaviour
             }
         }
         ForgingUgradeSlot upgradeSlot = GetUpgradeForgingUgradeSlot();
+
+        upgradeItem.isForgingUpgrade = false;
         upgradeSlot.ITEM = upgradeItem;
+        Debug.Log(upgradeItem.itemIndex + ", " + upgradeItem.id + ", " + upgradeItem.type);
         itemManager.SaveItemIntoPlayerPrefX();
         return 2;
     }

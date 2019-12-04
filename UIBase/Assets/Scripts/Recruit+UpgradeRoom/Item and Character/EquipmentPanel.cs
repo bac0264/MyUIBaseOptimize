@@ -27,6 +27,7 @@ public class EquipmentPanel : MonoBehaviour
         equipSlotList.SetupData();
         itemSlotList.DisplayEquipment();
         characterUI.UpdateCharacterStat(CharacterStatManager);
+        skeletonCharacter.RefreshUI();
     }
     private void OnDisable()
     {
@@ -76,6 +77,18 @@ public class EquipmentPanel : MonoBehaviour
                 item.Unequip(CharacterStatManager);
                 characterUI.UpdateCharacterStat(CharacterStatManager);
                 skeletonCharacter.RefreshUI();
+            }
+        }
+    }
+    public void UnequipNotRefreshUI(Item item)
+    {
+        if (item != null && item.value > 0)
+        {
+            if (itemSlotList.AddToUnequip(item))
+            {
+                equipSlotList.RemoveToUnequip(item);
+                item.Unequip(CharacterStatManager);
+                characterUI.UpdateCharacterStat(CharacterStatManager);
             }
         }
     }
