@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,5 +13,13 @@ public class WeaponType : MonoBehaviour
         bow = 3,
         mage = 4,
         doublePisol = 5
+    }
+    public static string GetWeaponName(float id)
+    {
+        foreach (string str in Enum.GetNames(typeof(Type)))
+        {
+            if (str.Equals(((Type)id).ToString())) return str;
+        }
+        return "Error Item";
     }
 }

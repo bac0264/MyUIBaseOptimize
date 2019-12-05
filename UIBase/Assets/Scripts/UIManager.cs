@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,5 +13,9 @@ public class UIManager : MonoBehaviour
     {
         PlayerPrefs.SetInt(KeySave.RECRUIT_OR_FORGING, 1);
         if (UIAbtractFactory.instance != null) UIAbtractFactory.instance.ShowPopup(UIBase.TypeOfUI.UI_RecruitAndUpgradeRoom);
+    }
+    public void _GamePlay()
+    {
+        SceneManager.LoadScene("GamePlay");
     }
 }

@@ -187,7 +187,11 @@ public class ForgingUgradeSlotList : MonoBehaviour
         int levelUpgrade = (int)fuSlot.ITEM.levelUpgrade + 1;
         int id = (int)fuSlot.ITEM.id;
         int type = (int)fuSlot.ITEM.type;
-        if (levelUpgrade > KeySave.MAX_LEVELUPGRADE_ITEM) levelUpgrade = KeySave.MAX_LEVELUPGRADE_ITEM;
+        if (levelUpgrade >= KeySave.MAX_LEVELUPGRADE_ITEM)
+        {
+            if (PopupFactory.instance != null) PopupFactory.instance.ShowPopup(BasePopup.TypeOfPopup.PO_ForgingUpgrade);
+            return 0;
+        }
         foreach (ForgingUgradeSlot itemSlot in fuSlots)
         {
             itemSlot.ITEM.value = 0;
@@ -204,7 +208,11 @@ public class ForgingUgradeSlotList : MonoBehaviour
     {
         int type = 0;//UnityEngine.Random.Range((int)TypeOfItem.Type.Weapon, (int)TypeOfItem.Type.Other);
         int levelUpgrade = (int)fuSlot.ITEM.levelUpgrade + 1;
-        if (levelUpgrade > KeySave.MAX_LEVELUPGRADE_ITEM) levelUpgrade = KeySave.MAX_LEVELUPGRADE_ITEM;
+        if (levelUpgrade >= KeySave.MAX_LEVELUPGRADE_ITEM)
+        {
+            if (PopupFactory.instance != null) PopupFactory.instance.ShowPopup(BasePopup.TypeOfPopup.PO_ForgingUpgrade);
+            return 0;
+        }
         int id = UnityEngine.Random.Range((int)WeaponType.Type.knife, (int)WeaponType.Type.doublePisol + 1);
         Item upgradeItem = new Item(0, id, type, 1, 0, levelUpgrade, false);
         itemManager.AddItem(upgradeItem);

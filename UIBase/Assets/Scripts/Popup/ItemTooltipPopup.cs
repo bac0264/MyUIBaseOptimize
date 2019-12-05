@@ -10,9 +10,10 @@ public class ItemTooltipPopup : BasePopup
     public Text Dame;
     public Text Power;
     public Text OtherText;
+    public Text Name;
     public Image Background;
     public Image Icon;
-   // public Image Type;
+    // public Image Type;
 
     public Button _equip;
     public Button _unequip;
@@ -31,15 +32,18 @@ public class ItemTooltipPopup : BasePopup
         {
             if (!item.type.ToString().Equals(((float)TypeOfItem.Type.Other).ToString()))
             {
-                HP.text = ": "+item.hp;
-                Dame.text = ": "+item.dame;
-                Power.text = ": "+item.power;
+                Name.text = GetItemName(item.type, item.id);
+                HP.text = ": " + item.hp;
+                Dame.text = ": " + item.dame;
+                Power.text = ": " + item.power;
+
                 if (db != null)
                 {
+                    Name.color = db.GetColor(item.levelUpgrade);
                     Background.sprite = db.GetBackground(item.levelUpgrade);
                     Icon.sprite = db.GetItemSprite(item.type.ToString(), item.id.ToString(), item.levelUpgrade.ToString());
-                   // Type.color = db.GetItemType(item.type.ToString());
-                   // Type.gameObject.SetActive(true);
+                    // Type.color = db.GetItemType(item.type.ToString());
+                    // Type.gameObject.SetActive(true);
                 }
                 _equip.gameObject.SetActive(true);
                 _unequip.gameObject.SetActive(false);
@@ -86,5 +90,21 @@ public class ItemTooltipPopup : BasePopup
     public void Unequip()
     {
         HideItemTooltip();
+    }
+    public string GetItemName(float type, float id)
+    {
+        switch (type)
+        {
+            case (int)TypeOfItem.Type.Weapon:
+                return (WeaponType.GetWeaponName(id) + "_" + (id + 1).ToString()).ToUpper();
+            case (int)TypeOfItem.Type.Ring:
+                return (RingType.GetRingName(id) + "_" + (id + 1).ToString()).ToUpper();
+            case (int)TypeOfItem.Type.Amulet:
+                return (AmuletType.GetAmuletName(id) + "_" + (id + 1).ToString()).ToUpper();
+            case (int)TypeOfItem.Type.Armor:
+                return (ArmorType.GetArmorName(id) + "_" + (id + 1).ToString()).ToUpper();
+            default:
+                return (OtherType.GetOtherName(id) + "_" + (id + 1).ToString()).ToUpper();
+        }
     }
 }

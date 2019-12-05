@@ -48,6 +48,20 @@ public class PopupFactory : MonoBehaviour
                     return;
                 }
                 break;
+            case BasePopup.TypeOfPopup.PO_ForgingUpgrade:
+                if (ForgingUpgradePopup.instance != null)
+                {
+                    ForgingUpgradePopup.instance.ShowPopup();
+                    return;
+                }
+                break;
+            case BasePopup.TypeOfPopup.PO_Character:
+                if (CharacterPopup.instance != null)
+                {
+                    CharacterPopup.instance.ShowPopup();
+                    return;
+                }
+                break;
         }
         InitPopup(type);
     }
@@ -56,6 +70,10 @@ public class PopupFactory : MonoBehaviour
         switch (type)
         {
             case BasePopup.TypeOfPopup.PO_ItemTooltip:
+                break;
+            case BasePopup.TypeOfPopup.PO_ForgingUpgrade:
+                break;
+            case BasePopup.TypeOfPopup.PO_Character:
                 break;
         }
         return null;

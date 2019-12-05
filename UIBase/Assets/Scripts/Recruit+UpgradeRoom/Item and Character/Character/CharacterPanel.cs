@@ -41,6 +41,10 @@ public class CharacterPanel : MonoBehaviour
                     ICharacterManager ICharacter = DIContainer.GetModule<ICharacterManager>();
                     ICharacter.SaveCharacterIntoPlayerPrefX();
                 }
+                else
+                {
+                    if (PopupFactory.instance != null) PopupFactory.instance.ShowPopup(BasePopup.TypeOfPopup.PO_Character);
+                }
             }
         }
     }

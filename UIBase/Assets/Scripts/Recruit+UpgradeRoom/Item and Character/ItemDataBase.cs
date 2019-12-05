@@ -37,4 +37,11 @@ public class ItemDataBase : MonoBehaviour
             return sprite;
         return null;
     }
+    public Color GetColor(float levelupgrade)
+    {
+        if (levelupgrade == 0) return Color.white;
+        else if (levelupgrade == 1) return Color.green;
+        else if (levelupgrade == 2) return Color.blue;
+        else return new Color(234f/255, 0,1,1);
+    }
 }

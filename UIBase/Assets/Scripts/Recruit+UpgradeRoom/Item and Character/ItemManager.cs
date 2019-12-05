@@ -19,7 +19,6 @@ public class ItemManager : IItemManager
     {
         List<string> data = new List<string>();
         List<Item> _itemList = new List<Item>();
-        Debug.Log(itemList.Count);
         foreach (KeyValuePair<string, Item> ele1 in itemList)
         {
             if (ele1.Value.value > 0)
