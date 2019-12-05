@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EquipmentPanel : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class EquipmentPanel : MonoBehaviour
                 itemSlotList.RemoveToEquip(item);
                 item.Equip(CharacterStatManager);
                 characterUI.UpdateCharacterStat(CharacterStatManager);
-                skeletonCharacter.RefreshUI();
+                if (item.type == (float)TypeOfItem.Type.Weapon) skeletonCharacter.RefreshUI();
             }
         }
 
@@ -76,11 +77,11 @@ public class EquipmentPanel : MonoBehaviour
                 equipSlotList.RemoveToUnequip(item);
                 item.Unequip(CharacterStatManager);
                 characterUI.UpdateCharacterStat(CharacterStatManager);
-                skeletonCharacter.RefreshUI();
+                if(item.type == (float)TypeOfItem.Type.Weapon)skeletonCharacter.RefreshUI();
             }
         }
     }
-    public void UnequipNotRefreshUI(Item item)
+    public void UnequipNoChangeAnimation(Item item)
     {
         if (item != null && item.value > 0)
         {
@@ -92,5 +93,4 @@ public class EquipmentPanel : MonoBehaviour
             }
         }
     }
-
 }

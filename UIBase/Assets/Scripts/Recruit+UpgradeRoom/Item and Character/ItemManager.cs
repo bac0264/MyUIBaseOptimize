@@ -5,7 +5,7 @@ using System;
 
 public class ItemManager : IItemManager
 {
-    private Dictionary<string, Item> itemList;
+    private Dictionary<string, Item> itemList = new Dictionary<string, Item>();
 
     public ItemManager()
     {
@@ -19,34 +19,42 @@ public class ItemManager : IItemManager
     {
         List<string> data = new List<string>();
         List<Item> _itemList = new List<Item>();
+        Debug.Log(itemList.Count);
         foreach (KeyValuePair<string, Item> ele1 in itemList)
         {
             if (ele1.Value.value > 0)
             {
                 _itemList.Add(ele1.Value);
+                Debug.Log(ele1.Value.isEquip);
             }
         }
         SortLocal.selectionSort(_itemList, _itemList.Count);
         for (int i = 0; i < _itemList.Count; i++)
         {
             string json = JsonUtility.ToJson(_itemList[i]);
-            data.Add(json);
-            //Debug.Log(json);
+            if (_itemList[i].value > 0)
+            {
+                data.Add(json);
+            }
         }
         PlayerPrefsX.SetStringArray(KeySave.ITEM_LIST, data.ToArray());
     }
 
     public void LoadAllItem()
     {
-        itemList = new Dictionary<string, Item>();
+        itemList.Clear();
         string[] data = PlayerPrefsX.GetStringArray(KeySave.ITEM_LIST);
         foreach (string json in data)
         {
             try
             {
                 Item item = JsonUtility.FromJson<Item>(json);
+                if (item.isEquip) Debug.Log(item.id);
                 if (item.value > 0)
+                {
                     itemList.Add(GetKey(item.type.ToString(), item.id.ToString(), item.itemIndex.ToString()), item);
+
+                }
             }
             catch
             {
@@ -87,7 +95,7 @@ public class ItemManager : IItemManager
             }
             else
             {
-                return j ;
+                return j;
             }
             j++;
         }

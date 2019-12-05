@@ -14,7 +14,7 @@ public class InitDI : MonoBehaviour
         IItemManager itemManager = DIContainer.GetModule<IItemManager>();
         if (PlayerPrefs.GetInt("1", 0) == 0)
         {
-            //PlayerPrefs.SetInt("1", 1);
+            PlayerPrefs.SetInt("1", 1);
             for (int i = 0; i < 15; i++)
             {
                 int levelUpgrade = Random.Range(0, 2);

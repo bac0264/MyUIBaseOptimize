@@ -5,10 +5,10 @@ TextureImporter:
     21300000: 0_2_0
     21300002: 0_2_1
     21300004: 0_5_1
-    21300006: 0_4_1
+    21300006: 0_4_0
     21300008: 0_0_1
     21300010: 0_3_0
-    21300012: 0_4_0
+    21300012: 0_4_1
     21300014: 0_3_1
     21300016: 0_0_0
     21300018: item_weapon_equiment_exp_9
@@ -179,7 +179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0_4_1
+      name: 0_4_0
       rect:
         serializedVersion: 2
         x: 667
@@ -239,11 +239,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0_4_0
+      name: 0_4_1
       rect:
         serializedVersion: 2
         x: 289
-        y: 267
+        y: 268
         width: 135
         height: 157
       alignment: 0

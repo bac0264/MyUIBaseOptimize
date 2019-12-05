@@ -20,21 +20,18 @@ public class SkeletonCharacter : MonoBehaviour
         if (character != null && character.skeleton != null)
         {
             Item item = DIContainer.GetModule<IItemManager>().GetEquipmentWeapon();
-            //character.SKELETON.();
+            string skin = "default";
             if (item != null)
             {
-                string skin = ((WeaponType.Type)item.id).ToString() + (item.levelUpgrade + 1).ToString();
+                skin = ((WeaponType.Type)item.id).ToString() + (item.levelUpgrade + 1).ToString();
                 animator.Play(((WeaponType.Type)item.id).ToString());
-                character.skeleton.SetSkin(skin);
-                character.skeleton.SetSlotsToSetupPose();
             }
             else
             {
-                string skin = "default";
                 animator.Play("animation");
-                character.skeleton.SetSkin(skin);
-                character.skeleton.SetSlotsToSetupPose();
             }
+            character.skeleton.SetSkin(skin);
+            character.skeleton.SetSlotsToSetupPose();
         }
     }
 }

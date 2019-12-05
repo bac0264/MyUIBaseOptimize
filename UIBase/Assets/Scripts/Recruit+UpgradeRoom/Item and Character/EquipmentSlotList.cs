@@ -19,7 +19,7 @@ public class EquipmentSlotList : MonoBehaviour
     public void SetupData()
     {
         if (itemManager == null) return;
-        List<Item> item = itemManager.EquipmentItemList();
+        List<Item> items = itemManager.EquipmentItemList();
         CharacterStatManager CharacterStatManager = CharacterStatManager.instance;
         if (CharacterStatManager != null)
         {
@@ -28,11 +28,11 @@ public class EquipmentSlotList : MonoBehaviour
         bool check = false;
         for (int i = 0; i < equipSlots.Length; i++)
         {
-            for (int j = 0; j < item.Count; j++)
+            for (int j = 0; j < items.Count; j++)
             {
-                if ((float)equipSlots[i].type.type == item[j].type)
+                if ((float)equipSlots[i].type.type == items[j].type)
                 {
-                    equipSlots[i].ITEM = item[j];
+                    equipSlots[i].ITEM = items[j];
                     if (CharacterStatManager != null)
                     {
                         equipSlots[i].ITEM.Equip(CharacterStatManager);
@@ -76,7 +76,8 @@ public class EquipmentSlotList : MonoBehaviour
         {
             if (EquipmentPanel.instance != null)
             {
-                EquipmentPanel.instance.UnequipNotRefreshUI(_itemSlot.ITEM);
+                if (EquipmentPanel.instance != null)
+                    EquipmentPanel.instance.UnequipNoChangeAnimation(_itemSlot.ITEM);
                 _itemSlot.ITEM = item;
                 return true;
             }

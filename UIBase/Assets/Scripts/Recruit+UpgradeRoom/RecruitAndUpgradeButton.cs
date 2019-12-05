@@ -97,6 +97,7 @@ public class RecruitAndUpgradeButton : MonoBehaviour
         id_upgrade = 0;
         UpdateUI_Upgrade(id_upgrade);
         forgingUpgradePanel.gameObject.SetActive(false);
+        characterPanel.gameObject.SetActive(false);
         itemSlotList.gameObject.SetActive(true);
         equipMentSlotList.gameObject.SetActive(true);
     }
