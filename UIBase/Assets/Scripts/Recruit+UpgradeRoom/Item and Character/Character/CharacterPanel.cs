@@ -16,6 +16,7 @@ public class CharacterPanel : MonoBehaviour
     }
     public void Awake()
     {
+        if (CharacterStatManager == null) CharacterStatManager = FindObjectOfType<CharacterStatManager>();
         characterSlotList.OnRightClickEvent += ShowStat;
     }
     private void OnEnable()

@@ -12,11 +12,6 @@ public class UIAbtractFactory : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
-        }
-        else
-        {
-            Destroy(this);
         }
         SetUIDictionary();
     }

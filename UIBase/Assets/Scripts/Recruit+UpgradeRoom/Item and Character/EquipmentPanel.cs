@@ -17,6 +17,7 @@ public class EquipmentPanel : MonoBehaviour
     {
         if (instance == null) instance = this;
         equipSlotList.OnRightClickEvent += Unequip;
+        if (CharacterStatManager == null) CharacterStatManager = FindObjectOfType<CharacterStatManager>();
     }
 
     private void OnEnable()

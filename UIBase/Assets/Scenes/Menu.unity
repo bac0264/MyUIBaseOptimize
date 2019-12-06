@@ -145,10 +145,10 @@ RectTransform:
   m_Father: {fileID: 405148158}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.025750078, y: 0.84257364}
-  m_AnchorMax: {x: 0.97724926, y: 0.9902132}
-  m_AnchoredPosition: {x: -1, y: -3}
-  m_SizeDelta: {x: -2, y: -1.5999756}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 844, y: 163.40002}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &5826871
 MonoBehaviour:
@@ -187,18 +187,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 90
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 90
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Daily Bonus
+  m_Text: 30-Day Login Rewards
 --- !u!222 &5826873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -246,10 +246,10 @@ RectTransform:
   m_Father: {fileID: 1837770160}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.10237583, y: 0.071467}
-  m_AnchorMax: {x: 0.87737435, y: 0.34889343}
-  m_AnchoredPosition: {x: 0.5, y: 0.5}
-  m_SizeDelta: {x: -2, y: -2}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &22508162
 MonoBehaviour:
@@ -267,14 +267,17 @@ MonoBehaviour:
   isRecieve: 0
   isOpen: 0
   price:
-    Gold: 1800
+    reward:
+      value: 0
+      Type:
+        type: 0
   container: {fileID: 1467811615}
   DailyDisplays:
-  - {fileID: 1913701778}
-  - {fileID: 1011526127}
-  - {fileID: 1225923662}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   day: {fileID: 405078283}
-  gold: {fileID: 584312838}
+  value: {fileID: 0}
 --- !u!114 &22508163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +445,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 202, y: 212}
+  m_SizeDelta: {x: 165, y: 168}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25353945
 MonoBehaviour:
@@ -464,7 +467,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b3d8ba1ae08d44e4c9eae7d660e7c808, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 6d0a884367c11274e8f4309a54ee0e31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1533,8 +1536,8 @@ RectTransform:
   m_Father: {fileID: 1837770160}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1125005, y: 0.38900003}
-  m_AnchorMax: {x: 0.3397501, y: 0.5786396}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1554,14 +1557,17 @@ MonoBehaviour:
   isRecieve: 0
   isOpen: 0
   price:
-    Gold: 700
+    reward:
+      value: 0
+      Type:
+        type: 0
   container: {fileID: 1233663353}
   DailyDisplays:
-  - {fileID: 1370521505}
-  - {fileID: 541346913}
-  - {fileID: 1461494123}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   day: {fileID: 24592521}
-  gold: {fileID: 246344930}
+  value: {fileID: 0}
 --- !u!114 &244499246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2041,6 +2047,7 @@ Transform:
   m_Children:
   - {fileID: 2078742462}
   - {fileID: 1551774442}
+  - {fileID: 1403183362}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2371,6 +2378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405148158}
   - component: {fileID: 405148159}
+  - component: {fileID: 405148160}
   m_Layer: 5
   m_Name: Daily_Panel_Container
   m_TagString: Untagged
@@ -2396,10 +2404,10 @@ RectTransform:
   m_Father: {fileID: 468066165}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.089851856, y: 0.24835417}
-  m_AnchorMax: {x: 0.91200006, y: 0.8318541}
-  m_AnchoredPosition: {x: -1.5, y: -1}
-  m_SizeDelta: {x: 1, y: -1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1005, y: 1402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &405148159
 CanvasRenderer:
@@ -2409,6 +2417,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405148157}
   m_CullTransparentMesh: 0
+--- !u!114 &405148160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405148157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 6d0a884367c11274e8f4309a54ee0e31, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!1 &405467816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,7 +2668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &468066165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2666,7 +2703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5254902}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3650,7 +3687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &995877239
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4363,10 +4400,10 @@ RectTransform:
   m_Father: {fileID: 1837770160}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.39262488, y: 0.38900003}
-  m_AnchorMax: {x: 0.6198748, y: 0.5786396}
-  m_AnchoredPosition: {x: 0, y: 0.5}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158687880
 MonoBehaviour:
@@ -4384,14 +4421,17 @@ MonoBehaviour:
   isRecieve: 0
   isOpen: 0
   price:
-    Gold: 800
+    reward:
+      value: 0
+      Type:
+        type: 0
   container: {fileID: 219589705}
   DailyDisplays:
-  - {fileID: 405467816}
-  - {fileID: 91862383}
-  - {fileID: 99404570}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   day: {fileID: 1494693469}
-  gold: {fileID: 961414605}
+  value: {fileID: 0}
 --- !u!114 &1158687881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4687,6 +4727,80 @@ Transform:
   m_Father: {fileID: 1518400705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1316648695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1316648696}
+  - component: {fileID: 1316648698}
+  - component: {fileID: 1316648697}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1316648696
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316648695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2113076015}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1079, y: 1921}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1316648697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316648695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 8c72d4eefe158444294ac60be1a2b7f3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1316648698
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316648695}
+  m_CullTransparentMesh: 0
 --- !u!1 &1351273053
 GameObject:
   m_ObjectHideFlags: 0
@@ -5750,6 +5864,93 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399585337}
   m_CullTransparentMesh: 0
+--- !u!1 &1403183361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1403183362}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1403183362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403183361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 361110673}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1431155652
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 190014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_Name
+      value: SRDebugger.Init
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490014, guid: 323169e9766db69459a435e10f3feed0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 323169e9766db69459a435e10f3feed0, type: 3}
 --- !u!1 &1444017534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5789,10 +5990,10 @@ RectTransform:
   m_Father: {fileID: 1837770160}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.39262488, y: 0.6044671}
-  m_AnchorMax: {x: 0.6198748, y: 0.7947869}
-  m_AnchoredPosition: {x: 0, y: 0.5}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444017536
 MonoBehaviour:
@@ -5810,14 +6011,17 @@ MonoBehaviour:
   isRecieve: 0
   isOpen: 0
   price:
-    Gold: 300
+    reward:
+      value: 0
+      Type:
+        type: 0
   container: {fileID: 180240664}
   DailyDisplays:
-  - {fileID: 60938383}
-  - {fileID: 871018102}
-  - {fileID: 1732000566}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   day: {fileID: 1834576395}
-  gold: {fileID: 30442482}
+  value: {fileID: 0}
 --- !u!114 &1444017537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5838,7 +6042,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b3d8ba1ae08d44e4c9eae7d660e7c808, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 6d0a884367c11274e8f4309a54ee0e31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6044,7 +6248,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 214, y: 224}
+  m_SizeDelta: {x: 175, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1486827673
 MonoBehaviour:
@@ -6066,7 +6270,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300002, guid: b3d8ba1ae08d44e4c9eae7d660e7c808, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 6d0a884367c11274e8f4309a54ee0e31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6217,10 +6421,10 @@ RectTransform:
   m_Father: {fileID: 1837770160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.112500474, y: 0.6044671}
-  m_AnchorMax: {x: 0.3397501, y: 0.7947869}
-  m_AnchoredPosition: {x: 0, y: 0.5}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1512877121
 MonoBehaviour:
@@ -6238,14 +6442,17 @@ MonoBehaviour:
   isRecieve: 0
   isOpen: 0
   price:
-    Gold: 200
+    reward:
+      value: 0
+      Type:
+        type: 0
   container: {fileID: 243788907}
   DailyDisplays:
-  - {fileID: 339083901}
-  - {fileID: 25353943}
-  - {fileID: 1486827671}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   day: {fileID: 1137651869}
-  gold: {fileID: 1242995610}
+  value: {fileID: 0}
 --- !u!114 &1512877122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6266,7 +6473,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b3d8ba1ae08d44e4c9eae7d660e7c808, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 6d0a884367c11274e8f4309a54ee0e31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7488,8 +7695,8 @@ GameObject:
   - component: {fileID: 1837770165}
   - component: {fileID: 1837770164}
   - component: {fileID: 1837770163}
-  - component: {fileID: 1837770162}
   - component: {fileID: 1837770161}
+  - component: {fileID: 1837770162}
   m_Layer: 5
   m_Name: DailyPanel
   m_TagString: Untagged
@@ -7518,10 +7725,10 @@ RectTransform:
   m_Father: {fileID: 405148158}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.064453125, y: -0.3894043}
-  m_SizeDelta: {x: -0.12885094, y: -0.7999878}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.2, y: -26.2}
+  m_SizeDelta: {x: 925, y: 1114.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837770161
 MonoBehaviour:
@@ -7545,23 +7752,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837770159}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 100
+    m_Left: 11
     m_Right: 0
-    m_Top: 230
+    m_Top: 11
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 202, y: 212}
-  m_Spacing: {x: 47, y: 30}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_CellSize: {x: 165, y: 168}
+  m_Spacing: {x: 20, y: 0}
+  m_Constraint: 1
+  m_ConstraintCount: 5
 --- !u!114 &1837770163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7589,7 +7796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837770159}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -7602,7 +7809,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300020, guid: b3d8ba1ae08d44e4c9eae7d660e7c808, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d0a884367c11274e8f4309a54ee0e31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7658,10 +7865,10 @@ RectTransform:
   m_Father: {fileID: 1837770160}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6727501, y: 0.6044671}
-  m_AnchorMax: {x: 0.89987504, y: 0.7947869}
-  m_AnchoredPosition: {x: 0, y: 0.5}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885743049
 MonoBehaviour:
@@ -7679,14 +7886,17 @@ MonoBehaviour:
   isRecieve: 0
   isOpen: 0
   price:
-    Gold: 500
+    reward:
+      value: 0
+      Type:
+        type: 0
   container: {fileID: 1094126829}
   DailyDisplays:
-  - {fileID: 1758825671}
-  - {fileID: 874223075}
-  - {fileID: 845537999}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   day: {fileID: 44013486}
-  gold: {fileID: 1104264347}
+  value: {fileID: 0}
 --- !u!114 &1885743050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7912,10 +8122,10 @@ RectTransform:
   m_Father: {fileID: 1837770160}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6626255, y: 0.38900003}
-  m_AnchorMax: {x: 0.89987504, y: 0.5786396}
-  m_AnchoredPosition: {x: 4.5, y: 0}
-  m_SizeDelta: {x: -9, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930547887
 MonoBehaviour:
@@ -7933,14 +8143,17 @@ MonoBehaviour:
   isRecieve: 0
   isOpen: 0
   price:
-    Gold: 1000
+    reward:
+      value: 0
+      Type:
+        type: 0
   container: {fileID: 1649057476}
   DailyDisplays:
-  - {fileID: 1832634234}
-  - {fileID: 307792092}
-  - {fileID: 939018240}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   day: {fileID: 1351273056}
-  gold: {fileID: 354213057}
+  value: {fileID: 0}
 --- !u!114 &1930547888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8518,6 +8731,7 @@ RectTransform:
   m_Children:
   - {fileID: 468066165}
   - {fileID: 1399051199}
+  - {fileID: 1316648696}
   m_Father: {fileID: 1114663657}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

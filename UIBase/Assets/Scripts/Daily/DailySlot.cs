@@ -20,9 +20,9 @@ public class DailySlot : MonoBehaviour, IPointerClickHandler
     public DailyPrice price;
 
     public Transform container;
-    public List<GameObject> DailyDisplays;
+    public List<Image> DailyDisplays;
     public Text day;
-    public Text gold;
+    public Text value;
     // public DailyReward dailyReward;
 
     public event Action<DailySlot> OnRightClickEvent;
@@ -75,18 +75,23 @@ public class DailySlot : MonoBehaviour, IPointerClickHandler
     public void RecieveReward()
     {
         IResourceManager irsm = DIContainer.GetModule<IResourceManager>();
-        irsm.AddResourceNeed(TypeOfResource.Type.GOLD.ToString(), price.Gold);
+        irsm.AddResourceNeed(price.reward.Type.ToString(), price.reward.value);
     }
     public void DailyDisplay(int index)
     {
         for(int i = 0; i < DailyDisplays.Count; i++)
         {
-            if (i == index) DailyDisplays[i].SetActive(true);
+            if (i == index) DailyDisplays[i].gameObject.SetActive(true);
             else 
             {
-                DailyDisplays[i].SetActive(false);
+                DailyDisplays[i].gameObject.SetActive(false);
             }
         }
+    }
+    public void SetupSprite()
+    {
+        DailyDisplays[Picked].sprite = DailySpriteDatabase.instance.getPick(price.reward.Type.ToString());
+        DailyDisplays[Default].sprite = DailySpriteDatabase.instance.getBackground(price.reward.Type.ToString());
     }
     // Onvalidate + Process Event
     #region
@@ -101,23 +106,11 @@ public class DailySlot : MonoBehaviour, IPointerClickHandler
             }
         }
     }
-    private void OnValidate()
-    {
-        if (DailyDisplays.Count == 0)
-        {
-            for (int i = 0; i < container.childCount; i++)
-            {
-                GameObject obj = container.transform.GetChild(i).gameObject;
-                DailyDisplays.Add(obj);
-            }
-        }
-
-    }
     #endregion
 }
 [System.Serializable]
 public class DailyPrice
 {
-    public float Gold;
+    public ResourceStat reward;
 }
 

@@ -18,7 +18,7 @@ public class DailyPanel : MonoBehaviour
                 slots[i].name = "Slot " + (i + 1);
                 slots[i].day.name = "Day ";
                 slots[i].day.text = "Day " + (i + 1);
-                slots[i].gold.text = slots[i].price.Gold.ToString();
+                slots[i].value.text = slots[i].price.reward.value.ToString();
                 slots[i].ID = i;
             }
         }
@@ -32,6 +32,7 @@ public class DailyPanel : MonoBehaviour
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].OnRightClickEvent += OnRightClickEvent;
+            slots[i].SetupSprite();
         }
     }
 
